@@ -1198,6 +1198,13 @@ $\blacksquare$
 
 > Let $V,W$ be vector spaces. If $V\cong W$, then $V$ and $W$ are called *isomorphic* vector spaces.
 
+:::{.callout-note}
+## Theorem: Isormorphism preserves linear independence
+
+Let $V,W$ be isomorphic vector spaces and let $T\in\mathcal L(V, W)$ be an isomorphism. Then, if $\{v_1,...,v_n\}$ is a linearly independent set in $V$, then $\{T(v_1),...,T(v_n)\}$ is a linearly independent set in $W$.
+:::
+
+
 ## Sums and Intersections of Vector Spaces
 
 ## Operators
