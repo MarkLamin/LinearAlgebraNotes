@@ -1952,6 +1952,64 @@ Proof
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: Isomorphism and Dimension
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(V,W\)</span> be vector spaces where <span class="math inline">\(\text{dim}(V)\)</span> is finite. Then, <span class="math inline">\(V\cong W\)</span> if and only if <span class="math inline">\(\text{dim}(V)=\text{dim}(W)\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-75-contents" aria-controls="callout-75" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-75" class="callout-75-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\((\impliedby)\)</span> Suppose <span class="math inline">\(\text{dim}(V)=\text{dim}(W)\)</span>. Let <span class="math inline">\(\{v_1,...v_n\}\)</span> be a basis of <span class="math inline">\(V\)</span>. This means that <span class="math inline">\(\text{dim}(V)=n=\text{dim}(W)\)</span>. Thus, a basis of <span class="math inline">\(W\)</span> is <span class="math inline">\(\{w_1,...,w_n\}\)</span> for some <span class="math inline">\(w_1,...,w_n\in W\)</span>.</p>
+<p>Let <span class="math inline">\(u\in V\)</span> be arbitrary. Then <span class="math inline">\(u\)</span> is entirely defined as a unique linear combination of basis vectors in <span class="math inline">\(V\)</span>. Thus, any function of <span class="math inline">\(u\)</span> can be defined as a function of <span class="math inline">\(c_1v_1+...+c_nv_n\)</span>. Let <span class="math inline">\(T\in\mathcal L(V, W)\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{align}
+T\left(\sum\limits_{i=1}^nc_iv_i\right) &amp;= \sum\limits_{i=1}^nc_iT(v_i)
+\end{align}
+\]</span></p>
+<p>Thus, <span class="math inline">\(T\)</span> is entirely determined by where it maps the basis vectors of <span class="math inline">\(V\)</span>. Define <span class="math inline">\(T\)</span> such that <span class="math inline">\(T(v_i)=w_i\)</span> for <span class="math inline">\(i=1,...,n\)</span>. Thus, <span class="math display">\[\sum\limits_{i=1}^nc_iw_i\]</span> We can conclude that <span class="math inline">\(\text{Range}(T)\)</span> are all vectors of the form <span class="math inline">\(\sum\limits_{i=1}^nc_iw_i\)</span> for <span class="math inline">\(c_i\in\mathbb R\)</span>. Thus, <span class="math inline">\(\text{Range}(T)=\text{span}(w_1,...,w_n)=W\)</span>. Thus, <span class="math inline">\(T\)</span> is surjective. Now, suppose <span class="math inline">\(u_1,u_2\in V\)</span> where <span class="math inline">\(T(u_1)=T(u_2)\)</span>. Observe that</p>
+<p><span class="math display">\[
+\begin{align}
+T(u_1)=T(u_2) &amp;\implies T\left(\sum\limits_{i=1}^nc_iv_i\right) = T\left(\sum\limits_{i=1}^nd_iv_i\right)\\
+              &amp;\implies \sum\limits_{i=1}^nc_iT(v_i) = \sum\limits_{i=1}^nd_iT(v_i)\\
+              &amp;\implies \sum\limits_{i=1}^nc_iw_i = \sum\limits_{i=1}^nd_iw_i\\
+              &amp;\implies \sum\limits_{i=1}^n(c_iw_i-d_iw_i) = \textbf{0}_W\\
+              &amp;\implies \sum\limits_{i=1}^n(c_i-d_i)w_i=\textbf{0}_W
+\end{align}
+\]</span></p>
+<p>Since the <span class="math inline">\(w_i\)</span>’s are independent since the vectors are part of a basis, then <span class="math inline">\(c_i=d_i\)</span> for all <span class="math inline">\(i=1,...,n\)</span>. Thus <span class="math inline">\(u_1=u_2\)</span>, so <span class="math inline">\(T\)</span> is injective. Thus, <span class="math inline">\(T\)</span> is bijective and is therefore an isomorphism from <span class="math inline">\(V\)</span> to <span class="math inline">\(W\)</span>. Thus, <span class="math inline">\(V\cong W\)</span>.</p>
+<p><span class="math inline">\((\implies)\)</span> Now suppose <span class="math inline">\(V\cong W\)</span>. Since <span class="math inline">\(V\)</span> has finite dimension, let <span class="math inline">\(n=\text{dim}(V)\)</span>. Then there exists a basis of length <span class="math inline">\(n\)</span> in <span class="math inline">\(V\)</span>, say <span class="math inline">\(\{v_1,...,v_2\}\)</span>. As shown in the previous theorem, if <span class="math inline">\(T\)</span> is an isomorphism from <span class="math inline">\(V\)</span> to <span class="math inline">\(W\)</span>, then <span class="math inline">\(\{T(v_1),...,T(v_n)\}\)</span> is a linearly independent set in <span class="math inline">\(W\)</span>. Observe that</p>
+<p><span class="math display">\[
+\begin{align}
+W &amp;= \text{Range}(T)\\
+  &amp;= \{Tv: v\in V\}\\
+  &amp;= \left\{T\left(\sum\limits_{i=1}^n c_iv_i\right): c_i\in\mathbb R\right\}\\
+  &amp;= \left\{\sum\limits_{i=1}^ncT(v_i): c_i\in\mathbb R\right\}\\
+  &amp;=\text{span}(Tv_1,...,Tv_n)
+\end{align}
+\]</span></p>
+<p>Since <span class="math inline">\(\{T(v_1),...,T(v_n)\}\)</span> is a linearly independent set and spans <span class="math inline">\(W\)</span>, it is a basis of <span class="math inline">\(W\)</span>. Thus, <span class="math inline">\(W\)</span> has dimension <span class="math inline">\(n\)</span> since its basis is of length <span class="math inline">\(n\)</span>. Therefore, <span class="math inline">\(\text{dim}(W)=n=\text{dim}(V)\)</span>.</p>
+<p>Therefore, <span class="math inline">\(V\cong W\)</span> if and only if <span class="math inline">\(\text{dim}(W)=\text{dim}(V)\)</span>, which is what we wanted to show. <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</div>
+</div>
 </section>
 <section id="sums-and-intersections-of-vector-spaces" class="level2" data-number="5.6">
 <h2 data-number="5.6" class="anchored" data-anchor-id="sums-and-intersections-of-vector-spaces"><span class="header-section-number">5.6</span> Sums and Intersections of Vector Spaces</h2>

@@ -1218,6 +1218,54 @@ $$
 Since $T$ is injective, this implies that $\sum\limits_{i=1}^nc_iv_i=\textbf{0}_W$. Since $\{v_1,...,v_n\}$ is a linearly independent set, this means that $c_1=...=c_n=0$. Thus, $\{T(v_1),...,T(v_n)\}$ is a linearly independent set in $W$, which is what we wanted to show. $\blacksquare$
 :::
 
+:::{.callout-note}
+## Theorem: Isomorphism and Dimension
+Let $V,W$ be vector spaces where $\text{dim}(V)$ is finite. Then, $V\cong W$ if and only if $\text{dim}(V)=\text{dim}(W)$.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+$(\impliedby)$ Suppose $\text{dim}(V)=\text{dim}(W)$. Let $\{v_1,...v_n\}$ be a basis of $V$. This means that $\text{dim}(V)=n=\text{dim}(W)$. Thus, a basis of $W$ is $\{w_1,...,w_n\}$ for some $w_1,...,w_n\in W$.
+
+Let $u\in V$ be arbitrary. Then $u$ is entirely defined as a unique linear combination of basis vectors in $V$. Thus, any function of $u$ can be defined as a function of $c_1v_1+...+c_nv_n$. Let $T\in\mathcal L(V, W)$. Then
+
+$$
+\begin{align}
+T\left(\sum\limits_{i=1}^nc_iv_i\right) &= \sum\limits_{i=1}^nc_iT(v_i)
+\end{align}
+$$
+
+Thus, $T$ is entirely determined by where it maps the basis vectors of $V$. Define $T$ such that $T(v_i)=w_i$ for $i=1,...,n$. Thus, $$\sum\limits_{i=1}^nc_iw_i$$ We can conclude that $\text{Range}(T)$ are all vectors of the form $\sum\limits_{i=1}^nc_iw_i$ for $c_i\in\mathbb R$. Thus, $\text{Range}(T)=\text{span}(w_1,...,w_n)=W$. Thus, $T$ is surjective. Now, suppose $u_1,u_2\in V$ where $T(u_1)=T(u_2)$. Observe that
+
+$$
+\begin{align}
+T(u_1)=T(u_2) &\implies T\left(\sum\limits_{i=1}^nc_iv_i\right) = T\left(\sum\limits_{i=1}^nd_iv_i\right)\\
+              &\implies \sum\limits_{i=1}^nc_iT(v_i) = \sum\limits_{i=1}^nd_iT(v_i)\\
+              &\implies \sum\limits_{i=1}^nc_iw_i = \sum\limits_{i=1}^nd_iw_i\\
+              &\implies \sum\limits_{i=1}^n(c_iw_i-d_iw_i) = \textbf{0}_W\\
+              &\implies \sum\limits_{i=1}^n(c_i-d_i)w_i=\textbf{0}_W
+\end{align}
+$$
+
+Since the $w_i$'s are independent since the vectors are part of a basis, then $c_i=d_i$ for all $i=1,...,n$. Thus $u_1=u_2$, so $T$ is injective. Thus, $T$ is bijective and is therefore an isomorphism from $V$ to $W$. Thus, $V\cong W$.
+
+$(\implies)$ Now suppose $V\cong W$. Since $V$ has finite dimension, let $n=\text{dim}(V)$. Then there exists a basis of length $n$ in $V$, say $\{v_1,...,v_2\}$. As shown in the previous theorem, if $T$ is an isomorphism from $V$ to $W$, then $\{T(v_1),...,T(v_n)\}$ is a linearly independent set in $W$. Observe that
+
+$$
+\begin{align}
+W &= \text{Range}(T)\\
+  &= \{Tv: v\in V\}\\
+  &= \left\{T\left(\sum\limits_{i=1}^n c_iv_i\right): c_i\in\mathbb R\right\}\\
+  &= \left\{\sum\limits_{i=1}^ncT(v_i): c_i\in\mathbb R\right\}\\
+  &=\text{span}(Tv_1,...,Tv_n)
+\end{align}
+$$
+
+Since $\{T(v_1),...,T(v_n)\}$ is a linearly independent set and spans $W$, it is a basis of $W$. Thus, $W$ has dimension $n$ since its basis is of length $n$. Therefore, $\text{dim}(W)=n=\text{dim}(V)$. 
+
+Therefore, $V\cong W$ if and only if $\text{dim}(W)=\text{dim}(V)$, which is what we wanted to show. $\blacksquare$
+:::
+
 ## Sums and Intersections of Vector Spaces
 
 ## Operators
