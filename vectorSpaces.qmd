@@ -1268,4 +1268,22 @@ Therefore, $V\cong W$ if and only if $\text{dim}(W)=\text{dim}(V)$, which is wha
 
 ## Sums and Intersections of Vector Spaces
 
+> Let $H, S$ be vector subspaces of a vector space, $V$. Then, the *sum* of the vector spaces is defined to be $H+S = \{h+s: h\in H, s\in S\}$. 
+
+> The *intersection* of of two vector spaces is notated $H\cap S = \{v: v\in H, v\in S\}$.
+
+> $H$ and $S$ are called *disjoint* if $H\cap S=\{\textbf{0}\}$.
+
+> $H$ and $S$ are called *complements* of $V$ if they are disjoint and $H+S=V$.
+
+:::{.callout-note}
+## Theorem: Sum of Subspaces is a Subspace
+If $H,S$ are subspaces of a vector space, $V$, then $H+S$ is also a vector space.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+$H+S$ is a subset of $V$ since for all $h\in H$ and $s\in S$, $h,s\in V$ so $h+s\in V$. Therefore, we only need to show that $H+S$ is a subspace of $V$.
+:::
+
 ## Operators
