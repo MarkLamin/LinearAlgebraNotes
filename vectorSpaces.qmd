@@ -1266,7 +1266,9 @@ Since $\{T(v_1),...,T(v_n)\}$ is a linearly independent set and spans $W$, it is
 Therefore, $V\cong W$ if and only if $\text{dim}(W)=\text{dim}(V)$, which is what we wanted to show. $\blacksquare$
 :::
 
-## Sums and Intersections of Vector Spaces
+# Sums and Intersections of Vector Spaces
+
+The following definitions and theorems will be helpful as we explore projections and approximations.
 
 > Let $H, S$ be vector subspaces of a vector space, $V$. Then, the *sum* of the vector spaces is defined to be $H+S = \{h+s: h\in H, s\in S\}$. 
 
@@ -1298,4 +1300,16 @@ If $H,S$ are subspaces of a vector space, $V$, then $H\cap S$ is a subspace.
 Since $H\cap S$ is a subset of $V$, it is sufficient to show that $H\cap S$ is a subspace of $V$. Since both $H$ and $S$ contain the zero vector (as with all subspaces of $V$), $H\cap S$ contains the zero vector as well. Suppose $a,b\in H\cap S$. Then since $a,b\in H$, $a+b\in H$ since $H$ is closed under vector addition. A similar argument shows that $a+b\in S$ as well. Thus, $a+b\in H\cap S$, making the set closed under vector addition. Consider $c\in\mathbb R$. Then, $ca\in H$ since $a\in H$ and $H$ is closed under scalar multiplication. A similar argument shows that $ca\in S$. Thus, $ca\in H\cap S$ and therefore the set is closed under scalar multiplication. Thus, $H\cap S$ is a subspace of $V$, which is what we wanted to show. $\blacksquare$
 :::
 
-## Operators
+:::{.callout-note}
+## Theorem: Complements and Uniqueness
+Suppose the subspaces, $H$ and $S$, are complements in a vector space $V$. Then for all $v\in V$, $v$ has a unique decomposition as $h+s$ where $h\in H$ and $s\in S$.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+We know of existence since $H+S=V$. Let $h_1, s_1$ and $h_2, s_2$ be vectors in $H$ and $S$ such that $$v=h_1 + s_1 = h_2 + s_2$$ This means that $h_1-h_2 = s_2-s_1$. $h_1-h_2\in H$ since $H$ is closed under addition (and therefore subtraction). A similar argument shows that $s_1-s_2\in S$. Thus, $h_1-h_2\in S$ and therefore $h_1-h_2\in H\cap S=\{\textbf{0}\}$. This means that $h_1-h_2=\textbf{0}\implies h_1=h_2$. Similarly, $s_2-s_1=\textbf{0}$, so $s_1=s_2$. Therefore, the decomposition is unique.
+:::
+
+# Inner Products
+
+# 

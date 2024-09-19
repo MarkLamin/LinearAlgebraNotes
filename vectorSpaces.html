@@ -124,9 +124,10 @@ window.Quarto = {
   <li><a href="#some-types-of-linear-maps-definitions" id="toc-some-types-of-linear-maps-definitions" class="nav-link" data-scroll-target="#some-types-of-linear-maps-definitions"><span class="header-section-number">5.3</span> Some Types of Linear Maps (Definitions)</a></li>
   <li><a href="#inverses" id="toc-inverses" class="nav-link" data-scroll-target="#inverses"><span class="header-section-number">5.4</span> Inverses</a></li>
   <li><a href="#isomorphisms" id="toc-isomorphisms" class="nav-link" data-scroll-target="#isomorphisms"><span class="header-section-number">5.5</span> Isomorphisms</a></li>
-  <li><a href="#sums-and-intersections-of-vector-spaces" id="toc-sums-and-intersections-of-vector-spaces" class="nav-link" data-scroll-target="#sums-and-intersections-of-vector-spaces"><span class="header-section-number">5.6</span> Sums and Intersections of Vector Spaces</a></li>
-  <li><a href="#operators" id="toc-operators" class="nav-link" data-scroll-target="#operators"><span class="header-section-number">5.7</span> Operators</a></li>
   </ul></li>
+  <li><a href="#sums-and-intersections-of-vector-spaces" id="toc-sums-and-intersections-of-vector-spaces" class="nav-link" data-scroll-target="#sums-and-intersections-of-vector-spaces"><span class="header-section-number">6</span> Sums and Intersections of Vector Spaces</a></li>
+  <li><a href="#inner-products" id="toc-inner-products" class="nav-link" data-scroll-target="#inner-products"><span class="header-section-number">7</span> Inner Products</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">8</span> </a></li>
   </ul>
 </nav>
 </div>
@@ -2011,8 +2012,10 @@ W &amp;= \text{Range}(T)\\
 </div>
 </div>
 </section>
-<section id="sums-and-intersections-of-vector-spaces" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="sums-and-intersections-of-vector-spaces"><span class="header-section-number">5.6</span> Sums and Intersections of Vector Spaces</h2>
+</section>
+<section id="sums-and-intersections-of-vector-spaces" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Sums and Intersections of Vector Spaces</h1>
+<p>The following definitions and theorems will be helpful as we explore projections and approximations.</p>
 <blockquote class="blockquote">
 <p>Let <span class="math inline">\(H, S\)</span> be vector subspaces of a vector space, <span class="math inline">\(V\)</span>. Then, the <em>sum</em> of the vector spaces is defined to be <span class="math inline">\(H+S = \{h+s: h\in H, s\in S\}\)</span>.</p>
 </blockquote>
@@ -2084,10 +2087,41 @@ Proof
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: Complements and Uniqueness
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose the subspaces, <span class="math inline">\(H\)</span> and <span class="math inline">\(S\)</span>, are complements in a vector space <span class="math inline">\(V\)</span>. Then for all <span class="math inline">\(v\in V\)</span>, <span class="math inline">\(v\)</span> has a unique decomposition as <span class="math inline">\(h+s\)</span> where <span class="math inline">\(h\in H\)</span> and <span class="math inline">\(s\in S\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-81-contents" aria-controls="callout-81" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-81" class="callout-81-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We know of existence since <span class="math inline">\(H+S=V\)</span>. Let <span class="math inline">\(h_1, s_1\)</span> and <span class="math inline">\(h_2, s_2\)</span> be vectors in <span class="math inline">\(H\)</span> and <span class="math inline">\(S\)</span> such that <span class="math display">\[v=h_1 + s_1 = h_2 + s_2\]</span> This means that <span class="math inline">\(h_1-h_2 = s_2-s_1\)</span>. <span class="math inline">\(h_1-h_2\in H\)</span> since <span class="math inline">\(H\)</span> is closed under addition (and therefore subtraction). A similar argument shows that <span class="math inline">\(s_1-s_2\in S\)</span>. Thus, <span class="math inline">\(h_1-h_2\in S\)</span> and therefore <span class="math inline">\(h_1-h_2\in H\cap S=\{\textbf{0}\}\)</span>. This means that <span class="math inline">\(h_1-h_2=\textbf{0}\implies h_1=h_2\)</span>. Similarly, <span class="math inline">\(s_2-s_1=\textbf{0}\)</span>, so <span class="math inline">\(s_1=s_2\)</span>. Therefore, the decomposition is unique.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="operators" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="operators"><span class="header-section-number">5.7</span> Operators</h2>
+<section id="inner-products" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Inner Products</h1>
 </section>
+<section id="section" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> </h1>
 </section>
 
 
