@@ -1204,6 +1204,19 @@ $\blacksquare$
 Let $V,W$ be isomorphic vector spaces and let $T\in\mathcal L(V, W)$ be an isomorphism. Then, if $\{v_1,...,v_n\}$ is a linearly independent set in $V$, then $\{T(v_1),...,T(v_n)\}$ is a linearly independent set in $W$.
 :::
 
+:::{.callout-note collapse=true}
+## Proof
+Let $c_1,...,c_n\in\mathbb R$ such that $\sum\limits_{i=1}^nc_iT(v_i)=\textbf{0}_W$. Since $T$ is linear, observe that
+
+$$
+\begin{align}
+\textbf{0}_W &= \sum\limits_{i=1}^nc_iT(v_i)\\
+             &= T\left(\sum\limits_{i=1}^nc_iv_i\right)
+\end{align}
+$$
+
+Since $T$ is injective, this implies that $\sum\limits_{i=1}^nc_iv_i=\textbf{0}_W$. Since $\{v_1,...,v_n\}$ is a linearly independent set, this means that $c_1=...=c_n=0$. Thus, $\{T(v_1),...,T(v_n)\}$ is a linearly independent set in $W$, which is what we wanted to show. $\blacksquare$
+:::
 
 ## Sums and Intersections of Vector Spaces
 
