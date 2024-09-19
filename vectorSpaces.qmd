@@ -1,0 +1,1203 @@
+---
+title: "Abstract Linear Algebra for (Bio) Statisticians"
+author: "Mark Lamin"
+format: html
+editor: visual
+theme:
+  dark: darkly
+  light: flatly
+toc: true
+toc-title: Contents
+number-sections: true
+---
+
+These notes are based on PubH 8401 -- Linear Models from the Fall 2024 semester, taught by [Steffen Ventz](https://steffen-ventz.github.io/). The textbook used is [Matrix Analysis for Statistics](https://books.google.com/books/about/Matrix_Analysis_for_Statistics.html?id=d-RzQgAACAAJ&source=kp_book_description) by [James R. Schott](https://sciences.ucf.edu/statistics/person/james-r-schott/). These notes are also heavily influenced by the book [Linear Algebra Done Right](https://linear.axler.net) by [Sheldon Axler](https://www.axler.net).
+
+# Real Vectors
+
+## Definition
+
+> Let $\mathbb R$ refer to the set of real numbers. Then $\mathbb R^n$ is the set of ordered lists of real numbers of length $n$. These lists are also called real *vectors* of length $n$.
+
+For instance, if $a_1,...,a_n\in\mathbb R$, then $$\begin{bmatrix} 
+ a_1\\  
+ a_2\\  
+ \vdots\\
+ a_n
+\end{bmatrix}\in\mathbb R^n$$
+
+::: {.callout-warning appearance="simple"}
+## Warning: Order Matters
+
+An ordered list means that $$\begin{bmatrix} 
+ a_1\\  
+ a_2
+\end{bmatrix}$$ is not necessarily equal to $$\begin{bmatrix} 
+ a_2\\  
+ a_1
+\end{bmatrix}$$ as an example. Make sure to be consistent if you are specifying the elements in a vector.
+:::
+
+> Elements in $\mathbb R$ are sometimes called *scalars* in the context of vector spaces.
+
+## Vector Addition
+
+> Let $a_1,...,a_n,b_1,...,b_n\in\mathbb R$. Then, we can extend the notion of addition to vectors, namely, *vector addition* as follows: $$\begin{bmatrix} 
+> a_1\\  
+> a_2\\  
+> \vdots\\
+> a_n
+> \end{bmatrix} + \begin{bmatrix} 
+> b_1\\  
+> b_2\\  
+> \vdots\\
+> b_n
+> \end{bmatrix} = \begin{bmatrix} 
+> a_1 + b_1\\  
+> a_2 + b_2\\  
+> \vdots\\
+> a_n + b_n
+> \end{bmatrix}$$
+
+## Scalar Multiplication
+
+> Let $c,a_1,...,a_n\in\mathbb R$. Then *scalar multiplication* is notated and defined as follows: $$c\begin{bmatrix} 
+> a_1\\  
+> a_2\\  
+> \vdots\\
+> a_n
+> \end{bmatrix} = \begin{bmatrix} 
+> ca_1\\  
+> ca_2\\  
+> \vdots\\
+> ca_n
+> \end{bmatrix}$$
+
+{{< pagebreak >}}
+
+# The Coordinate-Free Approach
+
+While we will typically think of vectors as elements of $\mathbb R^n$, we don't need to be that specific when developing our theory. This is the coordinate-free approach. ^[The notion of scalars can also be abstracted in the sense that a scalar is an element of a field, $F$, rather than specifically being an element in $\mathbb R$. However, keeping in mind that this is a statistics course, such abstraction will not be used. When the scalar field is not clear, one might use the term *real vector space* to indicate that the scalars are real. In these notes, "Vector Space" will be understood to mean "Real Vector Space".]
+
+## Defining a Vector Space
+
+> A *vector space* is a set, $V$, that is equipped with two operations: vector addition (+), and scalar multiplication, which is notated as $cv$ where $c\in\mathbb R$ and $v\in V$. These operations must obey the following properties (where we assume that $v,w,z\in V$ and $a,b\in\mathbb R$):
+>
+> (@)  $v+w\in V$ ^[aka $V$ is closed under vector addition]
+> (@)  $v + (w+z) = (v + w) + z$ ^[aka vector addition is associative in $V$]
+> (@)  There exists an element, $\textbf{0}\in V$ such that, $v+\textbf{0}=v$. ^[aka $V$ has an identity with respect to vector addition]
+> (@)  For all $v$, there exists a vector, $w$, such that $v+w=\textbf{0}$. ^[aka every element in $V$ has an inverse with respect to vector addition]
+> (@)  $v+w = w+v$ ^[aka vector addition is commutative in $V$]
+> (@)  $av\in V$ ^[aka $V$ is closed under scalar multiplication for all scalars in $\mathbb R$]
+> (@)  $a(bv)=(ab)v$
+> (@)  $1v=v$
+> (@)  $a(v+w) = av + aw$
+> (@) $(a+b)v = av+bv$.
+
+## Thinking Intuitively
+
+Properties 1-5 enforce the structure of vector addition in $V$. ^[For those with a background in abstract algebra, properties 1-5 are equivalent to saying $V$ is an abelian group under vector addition. See previous footnotes for the specific connections.]
+
+Properties 6-10 enforce structure to make scalar multiplication compatible with multiplication in the real numbers, thus allowing scalar multiplication to feel similar to the "usual" multiplication. For instance, property 8 gives consistency to how the number 1 operates in the reals as well as how it operates with respect to scalar multiplication. Properties 9 and 10 demonstrate that the distributive property operates with ease in vector spaces.
+
+When we prove properties about vector spaces, we can then apply those results to the special case where $V = \mathbb R^n$, and vector addition and scalar multiplication are as defined above.
+
+## Other Examples (You Should Verify)
+
+* $V$ is the set of continuous functions $f:[0,1]\to\mathbb R$.
+  + Vector Addition: For $f,g\in V$, $f + g\equiv f(x)+g(x)$
+  + Scalar Multiplication: For $f\in V$ and $c\in\mathbb R$, scalar multiplication is $cf(x)$.
+
+* $V$ is the set of polynomials of degree $\leq m$ for $m\in\mathbb N$
+  + Vector addition and scalar multiplication derived from the the first example.
+
+* $V = \{\textbf{0}\}$
+  + The vector sum of any two elements is the zero vector
+  + Any vector in $V$ scalar multiplied by any real number is the zero vector
+
+* $V = \left\{a\begin{bmatrix}1\\1\\1\end{bmatrix}:a\in\mathbb R\right\}$
+  + VA and SM derived from typical for $\mathbb R^3$
+
+## These are not vector spaces (you should verify)
+
+* $V = \left\{a\begin{bmatrix}1\\1\\1\end{bmatrix}:a\geq 0\right\}$
+  + Operations derived from $\mathbb R^3$
+
+* $V = \left\{\begin{bmatrix}1\\1\\1\end{bmatrix} +\begin{bmatrix}a\\b\\a+b\end{bmatrix} :a,b\in\mathbb R\right\}$
+  + Operations derived from $\mathbb R^3$
+
+# Immediate Results
+
+## Uniqueness
+
+The following two theorems take properties that show existence in the Vector Spaces definition and prove subsequent results about their uniqueness.
+
+::: {.callout-note}
+## Theorem: The zero vector is unique
+There is only one element, $\textbf{0}$, in $V$ that has the property that for all $v\in V$, $v + \textbf{0} = v$
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+
+Suppose there are two elements, $\textbf{0}_1$ and $\textbf{0}_2$ in $V$ that have the identity property. Then, observe that
+$$\begin{align}
+\textbf{0}_1 &= \textbf{0}_1 + \textbf{0}_2 \text{ (because $\textbf{0}_2$ is an identity element)}\\
+             &= \textbf{0}_2 + \textbf{0}_1 \text{ (commutative property of vector addition)}\\
+             &= \textbf{0}_2                \text{ (because $\textbf{0}_1$ is an identity element)}
+\end{align} $$
+
+Thus, all identity elements are the same, so the zero element in $V$ is unique, which is what we wanted to show. $\blacksquare$
+:::
+
+::: {.callout-note}
+## Theorem: Uniqueness of the Additive Inverse
+For all $v\in V$, there exists a [unique]{.underline} $w\in V$ such that $v + w =\textbf{0}$.^[This is true since $V$ is a group, but a proof is still provided below.]
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+
+Let $v\in V$ be arbitrary, and let $w,u\in V$ such that $v + w = \textbf{0}$ and that $v + u = \textbf{0}$.^[We know this is possible as Property 4 demonstrates existence of an inverse.] Observe that
+$$\begin{align}
+v + w = v + u &\implies (v + w) + w = (v + u) + w \text{ (transitive property of equality)}\\
+&\implies w + (v + w) = w + (v + u) \text{ (commutativity of vector addition)}\\
+&\implies (w + v) + w = (w + v) + u \text{ (associativity of vector addition)}\\
+&\implies (v + w) + w = (v + w) + u \text{ (commutativity of vector addition)}\\
+&\implies \textbf{0} + w = \textbf{0} + u\\
+&\implies w + \textbf{0} = u + \textbf{0} \text{ (commutativity of vector addition)}\\
+&\implies w = u \text{ (identity of zero vector under addition)}
+\end{align}$$
+
+Thus, all additive inverses of $v$ are equal, so the additive inverse of $v$ is unique, which is what we wanted to show. $\blacksquare$
+:::
+
+## Defining Subtraction
+
+>For notation purposes, we will now use $-v$ to be defined at the additive inverse of $v$.
+>
+>Then, we define subtraction, that is for $v,w\in V$, $v-w$ is defined to be $v + (-w)$.
+
+## Properties of 0
+
+:::{.callout-note}
+## Theorem: Multiplicative (Scalar) Zero
+For all $v\in V$, $0v=\textbf{0}$.
+:::
+
+:::{.callout-warning}
+## Two zeros?!
+
+What's the difference between 0 and $\textbf{0}$? Remember, $0\in\mathbb R$ refers to the real number 0, while $\textbf{0}\in V$ refers to the identity vector in $V$! If you're ever unsure which is which, look at the context in which the symbol is being used.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+
+Observe that
+$$
+\begin{align}
+0v &= (0+0)v\\
+   &= 0v + 0v \text{ (distributive property)}
+\end{align}
+$$
+
+Using this result, we observe that
+$$
+\begin{align}
+0v = 0v + 0v &\implies 0v + -(0v) = 0v + 0v + -(0v)\\
+             &\implies \textbf{0} = 0v + \textbf{0}\\
+             &\implies \textbf{0} = 0v \text{ (identity of zero vector)}
+\end{align}
+$$
+
+Therefore, $0v=\textbf{0}$, which is what we wanted to show. $\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem: Multiplicative (Vector) Zero
+For all $c\in \mathbb R$, $c\textbf{0}=\textbf{0}$.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Observe that
+
+$$
+\begin{align}
+c\textbf{0} &= c(\textbf{0} + \textbf{0}) \text{ (identity property of $\textbf{0}$)}\\
+            &= c\textbf{0} + c\textbf{0} \text{ (distributive property)}\\
+\end{align}
+$$
+
+Using this result, we observe that
+$$
+\begin{align}
+c\textbf{0} = c\textbf{0} + c\textbf{0} &\implies c\textbf{0} - c\textbf{0} = c\textbf{0} + c\textbf{0} - c\textbf{0}\\
+&\implies \textbf{0} = c\textbf{0} + \textbf{0} \text{ (identity property of zero vector)}\\
+&\implies \textbf{0} = c\textbf{0}
+\end{align}
+$$
+Thus, $c\textbf{0} = \textbf{0}$ which is what we wanted to show. $\blacksquare$
+:::
+
+## Consistency of Subtraction Notation
+
+Now that we've defined subtraction, we notice that there are multiple ways to interpret the quantity $-cv$ where $c\in\mathbb R$, $v\in V$. These are:
+
+* $-(cv)$
+* $(-c)v$
+* $-1*(cv)$
+* $c*(-v)$
+
+It turns out that these are all the same quantity, so we don't have to worry as much with our notation! Let's prove it with the following two theorems.
+
+:::{.callout-note}
+## Lemma
+For $v\in V$, $-1v = -v$
+:::
+
+:::{.callout-important}
+## What's the Difference?
+Remember, $-v$ refers to the (unique) additive inverse of $v$ while $-1v$ refers to $v$ being scalar multiplied by the real number $-1$. Our goal is to prove that they are actually the same thing.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Observe that
+$$
+\begin{align}
+\textbf{0} &= 0v \text{ (see previous theorem)}\\
+           &= (1+(-1))v\\
+           &= 1v + (-1)v \text{ (distributive property)}\\
+           &= v + (-1)v \text{ (identity property of scalar multiplication)}
+\end{align}
+$$
+
+Then observe that
+$$
+\begin{align}
+\textbf{0} = v + (-1)v &\implies \textbf{0} + (-v) = v + (-1)v + (-v)\\
+                       &\implies -v = v-v + (-1)v \text{ (commutative and associative properties of vector addition)}\\
+                       &\implies -v = \textbf{0} + (-1)v\\
+                       &\implies -v=-1v \text{ (identity property of vector addition)}
+\end{align}
+$$
+
+Therefore, $-v=-1v$ which is what we wanted to show. $\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem
+For $c\in\mathbb R$ and $v\in V$, $-(cv)=(-c)v=-1(cv)=c*(-v)$.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Observe that
+$$
+\begin{align}
+-(cv) &= -1(cv) \text{ (see previous lemma)}\\
+      &= (-1c)v \text{ (property of scalar multiplication)}\\
+      &= (-c)v\\
+      &= (c*(-1))v\\
+      &= c(-1v)\\
+      &= c*(-v)
+      &\blacksquare
+\end{align}
+$$
+:::
+Thus, we can use $-cv$ freely without worrying about how it is interpreted.
+
+## Other Results
+:::{.callout-note}
+## Theorem
+For $c\in\mathbb R$ and $v\in V$, if $cv=\textbf{0}$, then $c=0$ or $v=\textbf{0}$.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Suppose $cv=\textbf{0}$. Consider two cases:
+
+* $c=0$
+* $c\neq0$
+
+In the first case, there is nothing to show as $c=0$. In the second scenario, $\frac{1}{c}$ is well defined. Observe that
+
+$$
+\begin{align}
+cv=\textbf{0} &\implies \frac{1}{c}cv = \frac{1}{c}\textbf{0}\\
+              &\implies 1v            = \textbf{0} \text{ (see previous theorem)}\\
+              &\implies v             = \textbf{0} \text{ (identity in scalar multiplication)}
+\end{align}
+$$
+
+Thus, in this case $v=\textbf{0}$. Therefore, in both cases, either $c=0$ or $v=\textbf{0}$, which is what we wanted to show. $\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem: Counting Vectors
+Let $v$ be an element of some vector space, $V$. Then, for $n\in\mathbb N$, $\sum\limits_{i=1}^nv=nv$.
+:::
+
+
+### Sigma Notation for Vector Addition
+You probably have an idea how to define sigma notation for vector addition based on how sigma notation is defined for addition in the real numbers, but for completeness, I will define it here.^[There are certain properties that I will use without proof in these notes that could be proved using inductive properties on theorems already proved in the immediate results.]
+
+> For n = 1 and $v_1$ in a vector space, V, $$\sum\limits_{i=1}^nv_i = v_1$$
+For $n\in\mathbb N$, and $n>1$, and $v_1,...,v_n$ in a vector space, $V$, $$\sum\limits_{i=1}^nv_i = v_n + \left(\sum\limits_{i=1}^{n-1}v_i\right)$$
+Where in both cases, the + operation is vector addition.
+
+:::{.callout-note collapse=true}
+## Proof
+We will prove by induction. 
+
+(Base Case) When $n=1$, $\sum\limits_{i=1}^nv_i = v_1$ by definition of sigma notation, and $v_1=1v_1$ by definition of vector spaces.
+
+(Induction Hypothesis) Assume that the theorem is true for some $n\in\mathbb N$. Then,
+$$
+\begin{align}
+\sum\limits_{i=1}^{n+1}v &= v + \left(\sum\limits_{i=1}^nv\right)\\
+                        &= v + nv\\
+                        &= (1+n)v\\
+                        &= (n+1)v
+\end{align}
+$$
+Thus, for all $n\in\mathbb N$, $\sum\limits_{i=1}^nv=nv$, which is what we wanted to show. $\blacksquare$
+
+:::
+
+# Subspaces
+
+## Definition -- Subspace
+
+Let $V$ be a vector space. Suppose we have a subset, $S\subseteq V$. In what situations is $S$ a vector space (where $S$ inherits vector addition and scalar multiplication from $V$)? Conversely, suppose we have a subset of $V$ that we already know is a vector space. Is there anything else we immediately know about it?
+
+> A subspace is a subset, $S$ of a vector space, $V$, such that $S$ is itself a vector space with operations inherited from $V$.
+
+:::{.callout-note}
+## Theorem: Subspaces, Identity, and Closure
+If $S\subseteq V$ for a vector space $V$, then $S$ is a vector space with operations derived from $V$ if and only if all of the following are true.
+
+a) It contains $\textbf{0}$. ^[That is, $V$ and $S$ have the same (unique) additive identity.]
+b) For all $c\in\mathbb R$ and all $s\in S$, $cs\in S$. ^[That is, $S$ is closed under scalar multiplication.]
+c) For all $s,t\in S$, $s + t\in S$. ^[That is, $S$ is closed under vector addition.]
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+$(\implies):$ Suppose $S$ is a vector space. Then, b) and c) hold from properties 1 and 6 of the Vector Spaces Definition, respectively. To prove a), we recall from previous theorems that $S$ contains a unique additive identity. Suppose $\textbf{0}_S\in S$ is the additive identity of $S$ and $\textbf{0}_V\in V$ is the additive identity of $V$. Since $S\subseteq V$, $\textbf{0}_S\in V$, and similarly, for any $s\in S$, $s\in V$. Therefore, the following two equations hold in $V$: $$s+\textbf{0}_S=s$$ $$s+\textbf{0}_V=s$$ Therefore, 
+$$
+\begin{align}
+s+\textbf{0}_S = s+\textbf{0}_V &\implies s-s+\textbf{0}_S=s-s+\textbf{0}_V\\ 
+                                &\implies \textbf{0}_V + \textbf{0}_S = \textbf{0}_V + \textbf{0}_V\\
+                                &\implies \textbf{0}_S + \textbf{0}_V = \textbf{0}_V\\
+                                &\implies \textbf{0}_S = \textbf{0}_V
+\end{align}
+$$
+
+Since $\textbf{0}_S = \textbf{0}_V$, $\textbf{0}_V\in S$, thus completing this side of the proof.
+
+$(\impliedby)$: Now, suppose that a), b), and c) apply to $S$. This immediately shows that properties 1,3, and 6 of the Vector Spaces Definition apply to $S$. Additionally, properties 2,5,7,8,9, and 10 inherit from $V$. Thus, we only need to show property 4 holds. Suppose $s\in S$. We know that since $s\in V$ and $V$ is a vector space, there exists an element, $-s\in V$ such that $s +- s=0$. Since $-s = -1s$, $-s\in S$ by b). Thus, $S$ satisfies all 10 properties of a vector space as outlines in the definition, thus finishing this side of the proof. $\blacksquare$
+
+:::
+
+## Definition -- Linear Combination
+
+> Let $v_1,...,v_n\in V$ for a vector space, $V$. A *Linear Combination* of $v_1,...,v_n$ is a vector in the form of $\sum\limits_{i=1}^nc_iv_i$ where $c_1,...,c_n\in \mathbb R$.
+
+## Definition -- Span
+
+> Let $v_1,...,v_n\in V$ for a vector space, $V$. The *Span*, of $v_1,...,v_n$ is the set of all linear combinations of $v_1,...,v_n$. Equivalently, $$\text{span}(v_1,...,v_n) = \left\{\sum\limits_{i=1}^nc_iv_i : c_1,...,c_n\in\mathbb R\right\}$$ If $A=\{v_1,...,v_n\}$. Then $\text{span}(A)$ is equivalent notation to $\text{span}(v_1,...,v_n)$. If $\text{span}(A)=B$ for some set $B$, then we say $A$ *spans* $B$.
+
+:::{.callout-note}
+## Theorem: Subsets of Vectors Have Subsets of Spans
+Let $A$ and $B$ be finite sets of vectors where $A\subseteq B$. Then, $\text{span}(A)\subseteq\text{span}(B)$
+:::
+
+:::{.callout-note collapse=true}
+We can write $A$ as $\left{v_1,...,v_n\right}$ and $B$ as $\left{v_1,...,v_n,...,v_{n+k}\right}$. Suppose $w\in\text{span}(A)$, then there exists $c_1,...,c_n\in\mathbb R$ such that $$w=\sum\limits_{i=1}^nc_iv_i = \left(\sum\limits_{i=1}^nc_iv_i\right) + \sum\limits_{i=n+1}^{n+k}0v_i\in\text{span}(B)$$ $\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem: Spans are Subspaces
+Let $V$ be a vector space and $v_1,...,v_k\in V$. Then, $\text{span}(v_1,...,v_n)$ is a subspace of $V$.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Suppose $w\in\text{span}(v_1,...,v_n)$. Then, there exist $c_1,...,c_n\in\mathbb R$ such that $w=\sum\limits_{i=1}^nc_iv_i$. If $c_1=\dots c_n=0$, then $w=\textbf{0}$ (how can we prove this?). Suppose $a\in\mathbb R$. Then observe that
+$$
+\begin{align}
+aw &= a\sum\limits_{i=1}^nc_iv_i\\
+   &= \sum\limits_{i=1}^na(c_iv_i)\\
+   &= \sum\limits_{i=1}^n(ac_i)v_i
+\end{align}
+$$
+
+Since each $ac_i\in\mathbb R$, $aw\in\text{span}(v_1,...,v_n)$.
+
+Suppose $u\in\text{span}(v_1,...,v_n)$, then there exist $d_1,\dots,d_n\in\mathbb R$ such that $u=\sum\limits_{i=1}^nd_iv_i$. Observe that
+
+$$
+\begin{align}
+w+u &= \sum\limits_{i=1}^nc_iv_i +\sum\limits_{i=1}^nd_iv_i\\
+    &= \sum\limits_{i=1}^n(c_iv_i + d_iv_i) \text{ (associative property)}\\
+    &= \sum\limits_{i=1}^n(c_i + d_i)v_i \text{ (distributive property)}
+\end{align}
+$$
+
+Since each $c_i+d_i\in\mathbb R$, $w+u\in\text{span}(v_1,...,v_n)$. Therefore, $\text{span}(v_1,...,v_n)$ is a subspace of $V$ because it satisfies the three properties demonstrated by the previous theorem. $\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem: Vectors in Span of Other Vectors
+Let $V$ be a vector space and $v_1,...,v_n\in V$. If there exists $i$ such that $v_i\in\text{span}(\{v_j:j\neq i\})$, then $$\text{span}(v_1,...,v_n) = \text{span}(\{v_j:j\neq i\})$$
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Without loss of generality, suppose $i=n$. Then, we want to show that $\text{span}(v_1,...,v_n)=\text{span}(v_1,...,v_{n-1})$. We know that $\text{span}(v_1,...,v_{n-1})\subseteq\text{span}(v_1,...,v_n)$ since $\{v_1,...,v_{n-1}\}\subseteq\{v_1,...,v_n\}$.
+
+Suppose $w\in\text{span}(v_1,...,v_n)$. Then, there exists $c_1,...,c_n\in\mathbb R$ such that $w=\sum\limits_{i=1}^nc_iv_i$. Since $v_n\in\text{span}(v_1,...,v_{n-1})$, there exists $d_1,...,d_{n-1}\in\mathbb R$ such that $v_n=\sum\limits_{i=1}^{n-1}d_iv_i$. Therefore,
+$$
+\begin{align}
+w &= \sum\limits_{i=1}^nc_iv_i\\
+  &= \left(\sum\limits_{i=1}^{n-1}c_iv_i\right) + c_nv_n\\
+  &= \left(\sum\limits_{i=1}^{n-1}c_iv_i\right) + c_n\sum\limits_{i=1}^{n-1}d_iv_i\\
+  &= \sum\limits_{i=1}^{n-1}\left(c_iv_i + c_nd_iv_i\right)\\
+  &= \sum\limits_{i=1}^{n-1}\left(c_i + c_nd_i\right)v_i\\
+  &\in\text{span}(v_1,...,v_{n-1})
+\end{align}
+$$
+
+Thus, $\text{span}(v_1,...,v_{n})\subseteq\text{span}(v_1,...,v_{n-1})$. Therefore, $\text{span}(v_1,...,v_{n})=\text{span}(v_1,...,v_{n-1})$, which is what we wanted to show. $\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem: Zero Vector Does Not Change Span
+Let $V$ be a vector space and $v_1,...,v_n\in V$. If there exists $i$ such that $v_i=\textbf{0}$, then $$\text{span}(v_1,...,v_n) = \text{span}(\{v_j:j\neq i\})$$
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+$\textbf{0}$ is in the span of any set of vectors since that span is a subspace. Thus, this is a corollary of the previous theorem. $\blacksquare$
+:::
+
+Therefore, we have a mechanism of starting with a list of vectors, $v_1,...,v_n\in V$, and removing "unnecessary" vectors concerning span.
+
+* For $i=1,...,n$
+  + If $v_i$ is zero, remove it
+  + If $v_i\in\text{span}(v_1,...,v_{i-1})$, remove it
+
+The desire to characterize a vector space with the fewest number of vectors motivates the following definitions.
+
+## Definition -- Linear Independence
+
+> A set of vectors $v_1,...,v_n$ in a vector space $V$ is said to be *linearly independent* if $$\sum\limits_{i=1}^nc_iv_i = \textbf{0} \implies c_1=...=c_n=0$$ A set that is not linearly independent is *linearly dependent*.
+
+:::{.callout-note}
+## Theorem: Zero vector is not lineraly independent
+If a set of vectors, $v_1,...,v_n$ contains $\textbf{0}$, then it is not a linearly independent set.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Without loss of generality, suppose $v_1=\textbf{0}$. Then define $c_1,...,c_n\in\mathbb R$ such that $c_1=1$, and $c_i=0$ for $i=2,...,n$. Then,
+
+$$
+\begin{align}
+\sum\limits_{i=1}^nc_iv_i &= 1v_1 + \sum\limits_{i=2}^n0v_i\\
+                          &= v_1 + \sum\limits_{i=2}^n\textbf{0}\\
+                          &= \textbf{0} + \textbf{0}\\
+                          &= \textbf{0}
+\end{align}
+$$
+
+Thus, $\sum\limits_{i=1}^nc_iv_i=0$ does not imply that $c_1=...=c_n=0$ since there is an example with $c_1\neq0$ and $\sum\limits_{i=1}^nc_iv_i=0$. Thus, the set is not linearly independent, which is what we wanted to show. $\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem: Linearly Independent Vectors Do Not Lie in the Span of Each Other
+Suppose $S = \{v_1,...,v_n\}$ is a set of vectors in $V$. Then, $S$ is a linearly independent set if and only if the following two properties are satisfied.
+
+a) $\textbf{0}\notin S$
+b) $S$ does not contain any vectors that are in the span of the remaining vectors.
+:::
+
+:::{.callout-note collapse=true}
+## Proof:
+$(\implies)$ Suppose $S$ is a linearly independent set. Then property a) is satisfied from the previous theorem.
+
+Assume towards contradiction that b) does not hold. Then, without loss of generality, let's say that vector is $v_n$. From the previous theorem's proof, we know we can write $\sum\limits_{i=1}^nc_iv_i$ as $\sum\limits_{i=1}^{n-1}\left(c_i + c_nd_i\right)v_i$ where $c_i, d_i\in\mathbb R$. If we choose each $c_i=1$ and each $d_i=-1$, then we have $\sum\limits_{i=1}^nc_iv_i=\textbf{0}$, but not all $c_i$'s are 0. Thus, the set is not linearly independent, showing a contradiction and showing that property b) must, indeed, hold.
+
+$(\impliedby)$ Here we will prove the contrapositive. That means that we will assume $S$ is linearly dependent, and show that a) and b) do not both hold. If $\textbf{0}\in S$, then a) does not hold and there is nothing further to show. If $\textbf{0}\notin S$, then we need to show that b) is not possible. Since $S$ is linearly dependent, then there exists $c_1,...,c_n\in\mathbb R$ which are not all 0 such that $\sum\limits_{i=1}^nc_iv_i=\textbf{0}$. Let $j$ be the maximum of $\{1,...,n\}$ such that $c_j\neq0$. Then,
+$$
+\begin{align}
+\sum\limits_{i=1}^nc_iv_i=\textbf{0} &\implies\sum\limits_{i=1}^jc_iv_i=\textbf{0}\\
+                                     &\implies\sum\limits_{i=1}^{j-1}c_iv_i = -c_jv_j\\
+                                     &\implies\sum\limits_{i=1}^{j-1}\left(-\frac{c_i}{c_j}\right)v_i = v_j
+\end{align}
+$$
+Therefore, $v_j$ is in the span of the other vectors, so b) is not possible.
+
+$\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem
+A subset of a linearly independent set is linearly independent.
+:::
+
+:::{.callout-note collapse=true}
+## Proof:
+Without loss of generality, let $\{v_1,...,v_n\}$ be a linearly independent set of vectors in a vector space, $V$, and let $\{v_1,...,v_k\}$ be a subset where $k<n$. Assume towards contradiction that the subset is a linearly dependent set. Then, there exists a $v_i$ in the span of the other vectors in the subset. However, this implies that the $v_i$ is in the span of the other vectors in the linearly independent subset which is not possible. Hence, a contradiction. $\blacksquare$
+:::
+
+## Definition -- Basis
+
+> A basis of a vector space, $V$, is a linearly independent set of vectors whose span is $V$.
+
+:::{.callout-tip}
+A linearly independent set, $\{v_1,...,v_n\}$ is a basis of $\text{span}(v_1,..,v_n)$.
+:::
+
+:::{.callout-note}
+## Theorem
+If a vector space, $V$, has a basis, then any vector, $v\in V$ can be written as a unique linear combination of the basis vectors.
+:::
+
+:::{.callout-note collapse=true}
+## Proof:
+Let $B=\{b_1,...,b_n\}$ be a basis of $V$, let $v\in V$, and let $c_1,...,c_n,d_1,...,d_n$ be such that $$v = \sum\limits_{i=1}^nc_ib_i = \sum\limits_{i=1}^nd_ib_i$$ Thus, observe that 
+$$
+\begin{align}
+\sum\limits_{i=1}^nc_ib_i = \sum\limits_{i=1}^nd_ib_i &\implies \sum\limits_{i=1}^nc_ib_i - \left(\sum\limits_{i=1}^nd_ib_i\right)=\textbf{0}\\
+&\implies \sum\limits_{i=1}^n(c_ib_i-d_ib_i)=\textbf{0}\\
+&\implies \sum\limits_{i=1}^n(c_i-d_i)b_i=\textbf{0}\\
+&\implies c_i-d_i=0, \forall i \text{ Since $B$ is a linearly independent set}\\
+&\implies c_i=d_i, \forall i
+\end{align}
+$$
+
+Thus, $v$ is a unique linear combination of the basis vectors, which is what we wanted to show. $\blacksquare$
+:::
+
+This result means we can define a vector space through its basis vectors (assuming a basis exists). For example, if $v\in V$, then $v$ can be described entirely through its basis vectors.
+
+> Let $\mathcal B=\{b_1,...,b_n\}$ be a basis for a vector space, $V$. Then, for all $v\in V$, there exists a unique $c_1,...,c_n\in\mathbb R$ such that $$v=\sum\limits_{i=1}^nc_ib_i$$ $c_1,...,c_n$ are called the *coordinates* of $v$ with respect to $\mathcal B$.
+
+:::{.callout-note}
+## Theorem
+Every Vector Space of the form $\text{span}\{v_1,...,v_n\}$^[A vector space that can be describe as the span of a finite number of vectors is called *finite dimensional*. A vector space that is not finite dimensional is called *infinite dimensional*. We will mostly be working with finite-dimensional vector spaces in these notes.] has a basis.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+To show that there exists a basis, we will start from the set $\{v_1,...,v_n\}$, whose span is $V$, and remove vectors until it is a linearly independent set, but still spans $V$. We can accomplish this by doing the following:
+
+Step 1) Remove all $v_i$ in the set where $v_i=\textbf{0}$. Now the set is $\{v_1,...,v_m\}$ where $m\leq n$.
+Step 2) For $i=1,...,m$:
+  Remove $v_i$ if it is in the span of the other vectors in the set (not including any vectors that have already been removed).
+  
+With these steps, we have a set of vectors that does not contain $\textbf{0}$, nor has any vectors that lie in the span of the other vectors. From a previous theorem, these two properties imply we are left with a linearly independent set. We also know from previous theorems that this set still spans $V$. Thus, we have a basis of $V$, which is what we wanted to show. $\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem:
+Let $V$ be a vector space. A linearly independent set of vectors in $V$ has fewer than or equal to the number of vectors in a set whose span is $V$.^[I used [this Proof on Wikipedia](https://en.wikipedia.org/wiki/Steinitz_exchange_lemma) as inspiration.]
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Let $U=\{u_1,...,u_n\}$ be a linearly independent set, and let $W=\{w_1,...,w_m\}$ be a set that spans $V$. We want to show that $n\leq m$. To do this, we will show that we can replace a vector in $W$ with a vector in $U$ without changing the span of the set. We will show this by doing induction on the number of vectors in $U$.
+
+For the base case, consider the set $\{u_1\}\cup W$. Since $W$ spans $V$, $\{u_1\}\cup W$ must span $V$ as well. Since the span of a set of vectors is a vector space and $\textbf{0}$ is in all subspaces of $V$, $\textbf{0}\in\text{span}\{\{u_1\}\cup W\}$. Thus, there exist $c_0,c_1,...,c_m$ such that $$c_0u_1+\sum\limits_{i=1}^mc_iw_i=\textbf{0}$$ We know that it is possible for $c_0$ to be non-zero since $c_1,...,c_m$ can be chosen such that $\sum\limits_{i=1}^mc_iw_i=-c_0u_1$ (since $W$ spans $V$). In the case where $c_0\neq0$, $c_1,...,c_m$ can't all be zero because that would imply $u_1=\textbf{0}$, but that contradicts the assumption that $U$ is a linearly independent set. Thus, there exists at least one $w_i$ such that $c_i\neq0$. Choose $c_j$ such that $j$ is the max of $1,...m$ such that $c_j\neq0$. Thus, $$w_j=\left(-\frac{c_0}{c_j}u_1+\sum\limits_{i=1}^{j-1}\left(-\frac{c_i}{c_j}\right)w_i\right)\in\text{span}(\left(W\setminus\{w_j\}\right)\cup\{u_1\})$$ Thus, we can remove $w_j$ from the set $\{u_1\}\cup W$ and the span is the same.
+
+Now, we re label the remaining $w_i$ vectors so our set that spans $V$ is $\{u_1,w_2,...,w_m\}$.
+
+For the induction hypothesis, suppose that we were able to successfully replace $k$ (with $k<n$) vectors in $W$ with vectors. Assume towards contradiction that we've replaced all the vectors in $W$ with vectors in $U$.^[This either means that $k=m$ or that $k>m$ and that we eventually would just add vectors from $U$ and not removing any vectors.] Then, the set $\{u_1,...,u_k\}$ spans $V$. However, this means that $u_{k+1}\in\text{span}(\{u_1,...,u_k\})$, which implies that $\{u_1,...,u_{k+1}\}$ is a linearly dependent set which is a contradiction. Thus, $k<m\implies k+1\leq m$. As with the base case, we can relabel the remaining vectors in $W$ such that our new spanning set is $\{u_1,...,u_k,w_{k+1},...,w_m\}$.^[where, of course, in the case that $k+1=m$, $w_{k+1}$ is the last vector in the set.] Since $u_{k+1}\in\text{span}(u_1,...,u_k,w_{k+1},...,w_m)$, there exist scalars $c_1,...,c_n$ such that $$u_{k+1}=\sum\limits_{i=1}^kc_iu_i +\sum\limits_{i=k+1}^mc_iw_i$$ Assume towards contradiction that $c_{k+1}=...=c_m=0$, then this implies $u_{k+1}\in\text{span}(u_1,...,u_k)$ which implies that $\{u_1,...,u_{k=1}\}$ is not linearly independent, hence a contradiction. Thus, at least one of the scalars for the $w_i's$ is non zero. Choose $g$ to be the max of $k+1,...,m$ such that $c_g\neq0$. Then
+$$
+\begin{align}
+u_{k+1}=\sum\limits_{i=1}^kc_iu_i +\sum\limits_{i=k+1}^gc_iw_i &\implies u_{k+1} -\left(\sum\limits_{i=1}^kc_iu_i\right) - \left(\sum\limits_{i=k+1}^{g-1}c_iw_i\right)=c_gw_g\\
+                                                               &\implies \frac{1}{c_g}u_{k+1} -\left(\sum\limits_{i=1}^k\frac{c_i}{c_g}u_i\right)-\left(\sum\limits_{i=k+1}^{g-1}\frac{c_i}{c_g}w_i\right)=w_g
+\end{align}
+$$
+
+Thus, $w_g$ is in the span of the other vectors, so we can remove it from the list without changing the span. Without loss of generality, we can re label the remaining $w_i$ vectors such that the new list is $\{u_1,...,u_{k+1},w_{k+2},..,w_m\}$.
+
+Thus, by induction, we can replace $n$ $w$ vectors with $u$ vectors and end with either the set $U$ or $U$ as well as some $W$ vectors, that spans $V$. Thus, the linearly independent set has fewer vectors than the spanning set, which is what we wanted to show. $\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem
+If a vector space, $V$, has a basis, then every basis of $V$, has the same number of vectors.
+:::
+
+:::{.callout-note collapse=true}
+## Proof:
+Suppose we have two bases, $W=\{w_1,...,w_n\}$ and $B=\{b_1,...,b_m\}$. Since $W$ is a linearly independent set and $B$ spans $V$, then $n\leq m$. Since $B$ is a linearly independent set and $W$ spans $V$, $m\leq n$. Thus, $m=n$, so every basis of $V$ has the same number of vectors, which is what we wanted to show. $\blacksquare$
+:::
+
+## Definition -- Dimension of a Vector Space
+
+> The *dimension* of a vector space, $V$ is the (unique) number of vectors that comprise a basis of $V$. The dimension of $V$ is sometimes notated as $\text{dim}(V)$.
+
+### Examples (Verify)
+
+* The vector space $V = \left\{\begin{bmatrix}a\\b\\a+b\end{bmatrix} :a,b\in\mathbb R\right\}$ has dimension 2.
+* $\text{dim}\left(\mathbb R^n\right)=n$.
+* $\text{dim}\left(\mathcal P_n\right)=n+1$
+
+# Linear Maps
+
+## Basics
+
+This section will focus on functions that map between vector spaces.
+
+> Let $V,W$ be vector spaces. A function $T:V\to W$ is called *linear* if
+>
+> a) For $v_1,v_2\in V$, $T(v_1+v_2)=T(v_1)+T(v_2)$^[The addition in $T(v_1+v_2)$ refers to vector addition in $V$ while the addition in $T(v_1)+T(v_2)$ refers to vector addition in $W$.]
+b) For $c\in\mathbb R$ and $v\in V$, $T(cv)=cT(v)$^[The multiplication in $T(cv)$ refers to scalar multiplication in $V$ while the multiplication in $cT(v)$ refers to scalar multiplication in $W$.]
+Linear functions are also called linear maps.
+
+:::{.callout-important}
+# Some Notes on Notation
+
+* $V$ and $W$ need not share vector addition or scalar multiplication, but which operation is being used will be implied from context.
+* Sometimes $Tv$ will be used instead of $T(v)$ where $T$ is a linear map and $v$ is a vector in $T$'s domain.
+* Let $V,W$ be vector spaces. Then $\mathcal L(V,W)$ is the set of linear functions with domain $V$ and co-domain $W$.
+* $\mathcal L(V)$ is used instead of $\mathcal L(V,V)$ for concision.
+:::
+
+:::{.callout-note}
+## Theorem
+Let $V,W$ be vector spaces and suppose $T\in\mathcal L(V,W)$. Then $T(\textbf{0}_V)=\textbf{0}_W$.
+:::
+
+:::{.callout-note collapse=true}
+# Proof
+Observe that
+$$
+\begin{align}
+T(\textbf{0}_V) &= T(\textbf{0}_V+\textbf{0}_V)\\
+                &= T(\textbf{0}_V) + T(\textbf{0}_V)
+\end{align}
+$$
+
+Thus, observe that
+$$
+\begin{align}
+T(\textbf{0}_V) = T(\textbf{0}_V) + T(\textbf{0}_V) &\implies \textbf{0}_W = T(\textbf{0}_V)
+\end{align}
+$$
+
+Thus $T(\textbf{0}_V)=\textbf{0}_W$, which is what we wanted to show. $\blacksquare$
+:::
+
+## Linear Maps as Vectors
+
+We can additionally consider operations on linear maps.
+
+### Addition
+
+> Let $V,W$ be vector spaces and let $T_1, T_2\in\mathcal L(V,W)$. The notation of $T_1+T_2$ means that the function $S=T_1+T_2$ is defined to be that for $v\in V$, $S(v)=T_1(v)+T_2(v)$. For all $c\in\mathbb R$ and all $T\in\mathcal L(V,W)$, $S=cT$ is defined such that for all $v\in V$, $S(v)=cT(v)$.
+
+:::{.callout-note}
+## Theorem: Linear Maps are Vectors
+Let $V,W$ be vector spaces. Then, $\mathcal L(V, W)$ is a vector space with addition and scalar multiplication as defined above.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+
+For this proof, let $R, S, T\in\mathcal L(V, W)$, $u,v\in V$, and $a,b,c\in\mathbb R$.
+
+**Closure of Vector Addition**
+
+ Then the domain of $S+T$ is $V$ since $(S+T)(v)=S(v)+T(v)$ and $V$ is the domain of $S$ and $T$. $W$ is the co-domain of $S+T$ since $S(v), T(v)\in W$ and $W$ is closed under vector addition.
+ 
+ To show $S+T$ is a linear map, observe that
+ 
+ $$
+ \begin{align}
+ (S+T)(u+v) &= S(u+v) + T(u+v)\\
+            &= Su + Sv + Tu + Tv\\
+            &= (Su + Tu) + (Sv + Tv)\\
+            &= (S+T)u + (S+T)v
+ \end{align}
+ $$
+ 
+ and also observe that
+ 
+ $$
+ \begin{align}
+ (S+T)cv &= Scv + Tcv\\
+         &= cSv + cTv\\
+         &= c(Sv+Tv)\\
+         &= c(S+T)v
+ \end{align}
+ $$
+ 
+ Thus, $\mathcal L(V,W)$ is closed under vector addition.
+
+**Symmetry of Vector Addition**
+
+Observe that 
+
+$$
+\begin{align}
+(S+T)v &= Sv + Tv\\
+       &= Tv + Sv\\
+       &= (T+S)v
+\end{align}
+$$
+
+**Associativity of Vector Addition**
+
+Observe that
+
+$$
+\begin{align}
+(R + (S+T))v &= Rv + (Sv + Tv)\\
+             &= (Rv + Sv) + Tv\\
+             &= (R+S)v + Tv\\
+             &= ((R+S) + T)v
+\end{align}
+$$
+
+**Identity of Vector Addition**
+
+Define the map $Tv=\textbf{0}_W$ for all $v\in V$ where $\textbf{0}_W$ is the zero vector in $W$. Then, $T$ is the zero vector of $\mathcal L(V,W)$. To show this, observe that
+
+$$
+\begin{align}
+(S+T)v &= Sv + Tv\\
+       &= Sv + \textbf{0}_W\\
+       &= Sv
+\end{align}
+$$
+
+**Invertibility of Vector Addition**
+
+Let $v\in V$. Define $w=Tv$. Then define $S\in\mathcal L(V,W)$, such that $Sv=-w$. Then, 
+
+$$
+\begin{align}
+(T+S)v &= Tv + Sv\\
+       &= w - w\\
+       &= \textbf{0}_W
+\end{align}
+$$
+
+**Closure of Scalar Mulitplication**
+
+The set of inputs to $cT(v)$ are the same as to $T(v)$ so $cT$ has domain $V$. $Tv\in W$ through definition of $T$, and $cTv\in W$ since $W$ is closed under scalar multiplication due to $W$ being a vector space.
+
+To show that $cT$ is a linear map, observe that
+
+$$
+\begin{align}
+cT(u+v) &= cTu + cTv
+\end{align}
+$$
+
+and that
+
+$$
+\begin{align}
+cT(av) &= c(aTv)\\
+       &= (ca)Tv\\
+       &= (ac)Tv\\
+       &= a(cTv)
+\end{align}
+$$
+
+Therefore, $\mathcal L(V,W)$ is closed under scalar multiplication.
+
+**Associativity of Scalar Multiplication**
+
+Observe that 
+
+$$
+\begin{align}
+a(c(Tv)) &= (ac)(Tv)\\
+         &= (acT)v
+\end{align}
+$$
+
+**Identity of Scalar Multiplication**
+
+Observe that 
+
+$$
+\begin{align}
+(1T)v &= 1(Tv)\\
+      &= Tv
+\end{align}
+$$
+
+**Distributivity**
+
+Observe that
+
+$$
+\begin{align}
+((a+b)T)v &= (a+b)(Tv)\\
+          &= a(Tv) + b(Tv)\\
+          &= (aT)v + (bT)v\\
+          &= (aT + bT)v
+\end{align}
+$$
+
+and that
+
+$$
+\begin{align}
+(a(S+T))v &= a((S+T)v)\\
+          &= a(Sv + Tv)\\
+          &= a(Sv) + a(Tv)\\
+          &= (aS)v + (aT)v\\
+          &= (aS + aT)v
+\end{align}
+$$
+
+Thus, $\mathcal L(V,W)$ is a vector space which is what we wanted to show. $\blacksquare$
+:::
+
+:::{.callout-tip}
+## Subtraction
+
+Since we've shown that $\mathcal L(V,W)$ is a vector space, subtraction of linear maps is well defined. For example, for $S,T\in\mathcal L(V,W)$, $(S-T)v$ is $S(v)-T(v)$. 
+:::
+
+### Multiplication
+
+> Let $V,W,X$ be vector spaces and let $T_1\in\mathcal L(V, W)$ and $T_2\in\mathcal L(W, X)$. Then the notation $S = T_2T_1$ is defined such that for all $v\in V$, $Sv=T_2(T_1v)$.
+
+#### Properties of Multiplication
+
+:::{.callout-note}
+## Theorem: Associativity of Linear Map Multiplication
+
+Let $V,W,X, Y$ be vector spaces and let $T\in\mathcal L(V,W)$, $S\in\mathcal L(W,X)$, $R\in\mathcal L(X,Y)$. Then for all $v\in V$, $(R(ST))v = ((RS)T)v$.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+
+Observe that
+
+$$
+\begin{align}
+(R(ST))v &= R(STv)\\
+         &= R(S(Tv))\\
+         &= (RS)(Tv)\\
+         &= (RS(T))v \\
+         \blacksquare
+\end{align}
+$$
+:::
+
+:::{.callout-tip}
+
+With this theorem, there is no ambiguity in the multiplication of more than two linear maps in the sense that $RST$ is well defined.
+:::
+
+> The *identity map*, notated as $I_V\in\mathcal L(V)$, (or just as $I$ when the vector space is obvious) is the function such that for all $v\in V$, $Iv=v$.
+
+:::{.callout-note}
+## Theorem: The Identity Map is Linear
+Let $V$ be a vector space. Then, $I_V$ is a linear map.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Let $v,w\in V$ and let $c\in\mathbb R$. Then observe that
+
+$$
+\begin{align}
+I(v+w) &= v+w\\
+       &= Iv + Iw
+\end{align}
+$$
+
+And that
+
+$$
+\begin{align}
+I(cv) &= cv\\
+      &= c(Iv)
+\end{align}
+$$
+
+$\blacksquare$
+:::
+
+
+:::{.callout-note}
+## Theorem: Identity map as multiplicative identity
+
+Suppose $V,W$ are vector spaces, and let $T\in\mathcal L(V,W)$. Then for all $v\in V$ $$I_WTv=TI_Vv=Tv$$
+:::
+
+:::{.callout-note collapse=true}
+## Proof:
+
+Observe that
+
+$$
+\begin{align}
+I_WTv &= I_W(Tv)\\
+      &= Tv\\
+      &= T(I_Vv)\\
+      &= TI_Vv
+\end{align}
+$$ 
+$\blacksquare$
+:::
+
+:::{.callout-note}
+## Distributivity of Linear Map Multiplication
+
+Let $T_1,T_2\in\mathcal L(U,V)$ and $S_1, S_2\in\mathcal L(V, W)$. Then for all $v\in V$.
+
+i)  $(S_1+S_2)T_1v = (S_1T_1 + S_2T_1)v$
+ii) $S_1(T_1 + T_2)v = (S_1T_1 + S_1T_2)v$
+:::
+
+:::{.callout-note collapse=true}
+## Proof:
+
+Observe that
+
+$$
+\begin{align}
+(S_1+S_2)T_1v &= (S_1+S_2)(T_1v)\\
+              &= S_1(T_1v) + S_2(T_1v)\\
+              &= S_1T_1v + S_2T_1v\\
+              &= (S_1T_1 + S_2T_1)v
+\end{align}
+$$
+
+and also observe that
+
+$$
+\begin{align}
+S_1(T_1 + T_2)v &= S_1((T_1 + T_2)v)\\
+                &= S_1(T_1v + T_2v)\\
+                &= S_1((T_1v) + (T_2v))\\
+                &= S_1(T_1v) + S_1(T_2v)\\
+                &= S_1T_1v + S_1T_2v\\
+                &=(S_1T_1 + S_1T_2)v
+\end{align}
+$$
+
+$\blacksquare$
+:::
+
+## Some Types of Linear Maps (Definitions)
+
+For the following definitions, assume that $V,W$ are vector spaces and that $T\in\mathcal L(V,W)$.
+
+> $T$ is called *injective* if for all $u,v\in V$, $$T(u)=T(v)\implies u=v$$
+
+> The *null space*, notated as $\text{null}(T)$ is the set $\{v:T(v)=\textbf{0}_W\}$.
+
+> The *range* of $T$ is defined as the set of all possible outputs of $T$. That is, $$\text{range}(T) = \{Tv: v\in V\}$$
+
+> $T$ is called *surjective* if $\text{range}(T)=W$
+
+> $T$ is called *bijective* if it is both injective and surjective.
+
+:::{.callout-note}
+## Null and Range are subspaces
+
+Let $T\in\mathcal L(V,W)$ for vector spaces $V,W$. Then $\text{null}(T)$ and $\text{range}(T)$ are subspaces of $V$ and $W$ respectively.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+See HW 1
+:::
+
+:::{.callout-note}
+## Theorem: Injectivity and Trivial Null Space
+Let $T$ be a linear map with domain $V$ and co-domain $W$, where $V,W$ are vector spaces. Then, $T$ is injective if and only if $\text{null}(T)=\{\textbf{0}_V\}$.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+$(\implies)$ First, suppose that $T$ is injective. Then, since $T(\textbf{0}_V)=\textbf{0}_W$ (as shown in a previous theorem), $\textbf{0}_W$ is in the range of $T$ and thus has a unique input in $V$ since $T$ is injective. Thus, $\textbf{0}_V$ is the only input such that the output is $\textbf{0}_W$. That is, the null space of $T$ is $\{\textbf{0}_V\}$.
+
+$(\impliedby)$ On the other hand, suppose that $\text{null}(T)=\textbf{0}_V$. Let $u,v\in V$ and suppose $Tu=Tv$. Observe that
+
+$$
+\begin{align}
+\textbf{0}_W &= Tu - Tv\\
+             &= T(u-v)
+\end{align}
+$$
+
+Then, $T(u-v)\in\text{null}(T)$, so $u-v=\textbf{0}_V\implies u=v$, so $T$ is injective.
+
+Thus, $T$ is injective if and only if $\text{null}(T)=\{\textbf{0}_V\}$.
+:::
+
+## Inverses
+
+> Let $V,W$ be vector spaces and let $T\in\mathcal L(V, W)$. Then $T$ is called *invertible* if there exists $S\in\mathcal L(W, V)$ such that $ST=I_V$ and $TS=I_W$.
+
+:::{.callout-note}
+## Theorem: The inverse is unique
+Let $V,W$ be vector spaces and let $T\in\mathcal L(V, W)$ such that $T$ is invertible. Then $S$, as described in the definition of an invertible linear map, is unique.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Suppose $S_1,S_2\in\mathcal L(W,V)$ both have the property that $S_jT=I_V$ and $TS_j=I_W$ for $j=1,2$. Then observe that
+
+$$
+\begin{align}
+S_1 &= S_1I_W\\
+    &= S_1(TS_2)\\
+    &= (S_1T)S_2\\
+    &= I_VS_2\\
+    &= S_2
+\end{align}
+$$
+
+Thus all inverses of $T$ are equal, so the inverse of $T$ is unique. $\blacksquare$
+:::
+
+> Let $V,W$ be vector spaces and let $T\in\mathcal L(V, W)$. If $T$ is invertible, then $T^{-1}$ is defined to be the unique element in $\mathcal L(W, V)$ such that $T^{-1}T=I_V$ and $TT^{-1} I_W$. $T^{-1}$ is called the *inverse* of $T$.
+
+:::{.callout-tip}
+## The inverse of $T$ is invertible.
+
+Based on this definition, it should be clear that $(T^{-1})^{-1}=T$.
+:::
+
+:::{.callout-note}
+## Theorem: Bijectivity and Invertibility
+Let $V,W$ be vector spaces and let $T\in\mathcal L(V, W)$. Then $T$ is invertible if and only if $T$ is bijective.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+$(\implies)$ First suppose that $T$ is invertible. Then, let $v_1,v_2,\in V$ such that $Tv_1=Tv_2$. Observe that
+
+$$
+\begin{align}
+Tv_1=Tv_2 &\implies T^{-1}Tv_1=T^{-1}Tv_2\\
+          &\implies I_Vv_1 = I_vv_2\\
+          &\implies v_1 = v_2
+\end{align}
+$$
+
+Thus, $T$ is injective. Now, suppose $w\in W$. Observe that $T^{-1}w\in V$. Therefore,
+
+$$
+\begin{align}
+T(T^{-1}w) &= (TT^{-1})w\\
+           &= I_Ww\\
+           &= w
+\end{align}
+$$
+
+Therefore, for all $w\in W$, there exists an element in $V$, namely, $T^{-1}(w)$, such that $T$ maps that element to $w$. Thus, $T$ is surjective.
+
+Since $T$ is injective and surjective, $T$ must be bijective, completing this direction of the proof.
+
+$(\impliedby)$ Now, suppose $T$ is bijective. Then since $T$ is surjective, for every $w\in W$, there exists a $v\in V$ such that $Tv=w$. Since $T$ is injective, this $v$ is unique. We can therefore construct the well-defined function $S:W\to V$ such that $T(S(w))=w\implies T(S(w))=I_Ww$. Observe that for all $v\in V$,
+
+$$
+\begin{align}
+T(S(Tv)) &= T(v)
+\end{align}
+$$
+
+Which implies that $S(T(v)) = v$ since $T$ is injective. Thus, $S(Tv)=I_Vv$.
+
+To complete the proof then, it is sufficient to show that $S$ is a linear map. Suppose $w_1,w_2\in W$ and $c\in\mathbb R$. Then observe that
+
+$$
+\begin{align}
+T(S(w_1+w_2)) &= w_1 + w_2\\
+              &= T(S(w_1)) + T(S(w_2))\\
+              &= T(S(w_1) + S(w_2)) \text{ (by linearity of } T\text{)}
+\end{align}
+$$
+
+Then $T$'s injectivity shows that $S(w_1+w_2) = S(w_1) + S(w_2)$. Similarly, observe that
+
+$$
+\begin{align}
+T(S(cw_1)) &= cw_1\\
+           &= c T(S(w_1))\\
+           &= T(cS(w_1))\text{ (by linearity of } T\text{)}
+\end{align}
+$$
+
+Again, by injectivity of $T$, $cS(w_1)=S(cw_1)$. Thus, $S$ is linear, showing that $S=T^{-1}$. Therefore, if $T$ is bijective, then $T$ is invertible, finishing this direction of the proof. $\blacksquare$
+:::
+
+## Isomorphisms
+
+> Let $V,W$ be vector spaces with $T\in\mathcal L(V,W)$. If $T$ is bijective, then $T$ is an *isomorphism* from $V$ to $W$. We can use the notation $V\cong W$ to indicate that there exists an isomorphism from $V$ to $W$.
+
+:::{.callout-tip}
+## Alternate Definition of Isomorphism
+
+$T$ is an isomorphism if and only if $T$ is invertible.
+:::
+
+:::{.callout-note}
+## Theorem: Isomorphism is an Equivalence Relation
+Let $V,W,X$ be vector spaces. Then, the following are true:
+
+i) $V\cong V$ ^[identity of an equivalence relation]
+ii) $V\cong W\implies W\cong V$ ^[symmetry of an equivalence relation]
+iii) $V\cong W$ and $W\cong X$ implies $V\cong X$ ^[transitivity of an equivalence relation]
+:::
+
+:::{.callout-note collapse=true}
+## Proof:
+
+i) Let $T=I_V$, the identity map in $V$. Then $T$ is invertible since $I_VI_V=I_V$. Since $I_V\in\mathcal L(V)$, $I_V$ is an isomorphism from $V$ to $V$. Thus, $V\cong V$.
+
+ii) Let $T\in\mathcal L(V, W)$ be an isomorphism. Since $T$ is bijective, $T$ is invertible. Since $T^{-1}$ is invertible, $T^{-1}$ is also bijective, so $T^{-1}\in\mathcal L(V, W)$ is an isomorphism. Thus, $V\cong W\implies W\cong V$.
+
+iii) Let $T\in\mathcal L(V,W)$ and $S\in\mathcal L(W, X)$. Then define $R = ST\in\mathcal L(V, X)$. Observe that
+
+$$
+\begin{align}
+ST(T^{-1}S^{-1}) &= S(TT^{-1})S^{-1}\\
+                 &= SI_WS^{-1}\\
+                 &= (SI_W)S^{-1}\\
+                 &= SS^{-1}\\
+                 &= I_X
+\end{align}
+$$
+
+and that
+
+$$
+\begin{align}
+(T^{-1}S^{-1})ST &= T^{-1}(S^{-1}S)T\\
+                 &= T^{-1}I_WT\\
+                 &= T^{-1}T\\
+                 &= I_V
+\end{align}
+$$
+
+Thus, $R=ST$ is invertible^[In fact, this proves that if a linear map, $ST$, is invertible, that $(ST)^{-1}=T^{-1}S^{-1}$], so $R$ is a bijection, and thus an isomorpshism from $V$ to $X$, so $V\cong X$, which is what we wanted to show.
+
+$\blacksquare$
+:::
+
+> Let $V,W$ be vector spaces. If $V\cong W$, then $V$ and $W$ are called *isomorphic* vector spaces.
+
+## Sums and Intersections of Vector Spaces
+
+## Operators
