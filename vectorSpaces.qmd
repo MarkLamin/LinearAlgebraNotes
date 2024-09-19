@@ -1284,6 +1284,8 @@ If $H,S$ are subspaces of a vector space, $V$, then $H+S$ is also a vector space
 :::{.callout-note collapse=true}
 ## Proof
 $H+S$ is a subset of $V$ since for all $h\in H$ and $s\in S$, $h,s\in V$ so $h+s\in V$. Therefore, we only need to show that $H+S$ is a subspace of $V$.
+
+Since $\textbf{0}\in H$ and $\textbf{0}\in S$, then $\textbf{0}=\textbf{0}+\textbf{0}\in H+S$. Similarly observe that for $a,b\in S+H$, that there exists $h_a,h_b\in H$ and $s_a, s_b\in S$ such that $$a+b=(h_a+s_a) + (h_b + s_b) = (h_a + h_b) + (s_a + s_b)$$ Since $(h_a + h_b)\in H$ and $(s_a + s_b)\in S$, then $a+b\in H+S$. Additionally, consider $c\in\mathbb R$. Then observe that $$ca = c(h_a + s_a) = ch_a + cs_a$$ Since $ch_a\in H$ and $cs_a\in S$, then $ca\in H+S$. Thus, $H+S$ contains the zero vector, is closed under vector addition, and is closed under scalar multiplication, so $H+S$ is a subspace of $V$, which is what we wanted to show. $\blacksquare$
 :::
 
 ## Operators
