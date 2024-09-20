@@ -132,7 +132,8 @@ window.Quarto = {
   <li><a href="#projections-and-approximations" id="toc-projections-and-approximations" class="nav-link" data-scroll-target="#projections-and-approximations"><span class="header-section-number">7</span> Projections and Approximations</a>
   <ul class="collapse">
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">7.1</span> Motivation</a></li>
-  <li><a href="#inner-product-spaces" id="toc-inner-product-spaces" class="nav-link" data-scroll-target="#inner-product-spaces"><span class="header-section-number">7.2</span> Inner Product Spaces</a></li>
+  <li><a href="#inner-products" id="toc-inner-products" class="nav-link" data-scroll-target="#inner-products"><span class="header-section-number">7.2</span> Inner Products</a></li>
+  <li><a href="#norms" id="toc-norms" class="nav-link" data-scroll-target="#norms"><span class="header-section-number">7.3</span> Norms</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -2140,8 +2141,8 @@ Proof
 <p>But we don’t have to give up. We might not have a <span class="math inline">\(v\)</span> that perfectly solves the equation, but is there a <span class="math inline">\(v\)</span> that approximates the solution. Is there a <span class="math inline">\(v\)</span> such that <span class="math inline">\(Tv\)</span> is very close to <span class="math inline">\(w\)</span>? What does “very close” mean in the context of an abstract vector space?</p>
 <p>These questions are answered with the following structures and definitions in this section.</p>
 </section>
-<section id="inner-product-spaces" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="inner-product-spaces"><span class="header-section-number">7.2</span> Inner Product Spaces</h2>
+<section id="inner-products" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="inner-products"><span class="header-section-number">7.2</span> Inner Products</h2>
 <blockquote class="blockquote">
 <p>For a vector space, <span class="math inline">\(V\)</span>, an <em>inner product</em> is a function from <span class="math inline">\(V\times V\to\mathbb R\)</span>, notated as <span class="math inline">\(\langle,\rangle\)</span> that meets the following criteria</p>
 <ol type="a">
@@ -2149,7 +2150,7 @@ Proof
 <li>For all <span class="math inline">\(v\in V\)</span>, <span class="math inline">\(\langle v,v\rangle=0 \iff v=\textbf{0}\)</span></li>
 <li>For all <span class="math inline">\(u,v\in V\)</span>, <span class="math inline">\(\langle u,v\rangle=\langle v,u\rangle\)</span><a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a></li>
 <li>For all <span class="math inline">\(u,v\in V\)</span> and <span class="math inline">\(c\in\mathbb R\)</span>, <span class="math inline">\(\langle cu,v\rangle=c\langle u,v\rangle\)</span></li>
-<li>For all <span class="math inline">\(u,v,w\in V \langle u+v, w\rangle = \langle u,w\rangle + \langle v,w\rangle\)</span></li>
+<li>For all <span class="math inline">\(u,v,w\in V \langle u+v, w\rangle = \langle u,w\rangle + \langle v,w\rangle\)</span><a href="#fn27" class="footnote-ref" id="fnref27" role="doc-noteref"><sup>27</sup></a></li>
 </ol>
 <p>A vector space equipped with an inner product is called and <em>Inner Product Space</em>.</p>
 </blockquote>
@@ -2229,6 +2230,70 @@ Inner Products of Large Sums
 </div>
 </div>
 </section>
+<section id="norms" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="norms"><span class="header-section-number">7.3</span> Norms</h2>
+<blockquote class="blockquote">
+<p>Let <span class="math inline">\(V\)</span> be an inner product space. Then, for <span class="math inline">\(v\in V\)</span>, the <em>norm</em> of <span class="math inline">\(V\)</span>, notated as <span class="math inline">\(\|v\|\)</span> is defined to be <span class="math inline">\(\|v\|=\sqrt{\langle v,v\rangle}\)</span><a href="#fn28" class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a></p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: Norm Properties
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(V\)</span> be an inner product space with <span class="math inline">\(u,v\in V\)</span>. <span class="math inline">\(c\in\mathbb R\)</span>. Then</p>
+<ol type="a">
+<li><span class="math inline">\(\|cv\|=|c|\|v\|\)</span></li>
+<li><span class="math inline">\(\|v\|=0\iff v=\textbf{0}\)</span></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-86-contents" aria-controls="callout-86" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-86" class="callout-86-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Proof of a) Observe that</p>
+<p><span class="math display">\[
+\begin{align}
+\|cv\| &amp;= \sqrt{\langle cv,cv\rangle}\\
+       &amp;= \sqrt{c^2\langle v,v\rangle}\\
+       &amp;= \sqrt{c^2}\sqrt{\langle v,v\rangle}\\
+       &amp;= |c|\|v\|
+\end{align}
+\]</span></p>
+<p>Proof of b) If <span class="math inline">\(\|v\|=0\)</span>, Then</p>
+<p><span class="math display">\[
+\begin{align}
+0 &amp;= \|v\|\\
+  &amp;= \sqrt{\langle v,v\rangle}
+\end{align}
+\]</span></p>
+<p>So <span class="math inline">\(0=\sqrt{\langle v,v\rangle}\)</span>, squaring both sides gives us <span class="math inline">\(0=\langle v,v\rangle\)</span> which means that <span class="math inline">\(v=\textbf{0}\)</span> by definition of an inner product.</p>
+<p>If <span class="math inline">\(v=\textbf{0}\)</span>, then</p>
+<p><span class="math display">\[
+\begin{align}
+\|v\| &amp;= \sqrt{\langle v,v\rangle}\\
+      &amp;= \sqrt{\langle\textbf{0},\textbf{0}\rangle}\\
+      &amp;=\sqrt{0}\\
+      &amp;=0
+\end{align}
+\]</span> <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</div>
+</div>
+</section>
 </section>
 
 
@@ -2261,6 +2326,8 @@ Inner Products of Large Sums
 <li id="fn24"><p>In fact, this proves that if a linear map, <span class="math inline">\(ST\)</span>, is invertible, that <span class="math inline">\((ST)^{-1}=T^{-1}S^{-1}\)</span><a href="#fnref24" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn25"><p>positivity of inner products<a href="#fnref25" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn26"><p>symmetry of inner products<a href="#fnref26" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn27"><p>d and e represent the linearity of inner products<a href="#fnref27" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn28"><p>In some texts, the term here is the <em>induced norm</em> by the inner product, and the notion of a norm is generalized to be a function that has a particular set of properties, including those proved in the following theorem.<a href="#fnref28" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->

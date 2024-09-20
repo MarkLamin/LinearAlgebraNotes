@@ -1330,7 +1330,7 @@ But we don't have to give up. We might not have a $v$ that perfectly solves the 
 
 These questions are answered with the following structures and definitions in this section.
 
-## Inner Product Spaces 
+## Inner Products
 
 > For a vector space, $V$, an *inner product* is a function from $V\times V\to\mathbb R$, notated as $\langle,\rangle$ that meets the following criteria
 >
@@ -1338,7 +1338,7 @@ These questions are answered with the following structures and definitions in th
 b) For all $v\in V$,  $\langle v,v\rangle=0 \iff v=\textbf{0}$
 c) For all $u,v\in V$, $\langle u,v\rangle=\langle v,u\rangle$^[symmetry of inner products]
 d) For all $u,v\in V$ and $c\in\mathbb R$, $\langle cu,v\rangle=c\langle u,v\rangle$
-e) For all $u,v,w\in V \langle u+v, w\rangle = \langle u,w\rangle + \langle v,w\rangle$
+e) For all $u,v,w\in V \langle u+v, w\rangle = \langle u,w\rangle + \langle v,w\rangle$^[d and e represent the linearity of inner products]
 >
 > A vector space equipped with an inner product is called and *Inner Product Space*.
 
@@ -1396,4 +1396,55 @@ $\blacksquare$
 :::{.callout-tip}
 ## Inner Products of Large Sums
 Induction can be used to prove similar properties with sums of more than two vectors. For example, if $u,v_1,...,v_n\in V$ for some inner product space $V$, then $$\left\langle u,\sum\limits_{i=1}^nv_i\right\rangle = \sum\limits_{i=1}^n\langle u,v_i\rangle$$
+:::
+
+## Norms
+
+> Let $V$ be an inner product space. Then, for $v\in V$, the *norm* of $V$, notated as $\|v\|$ is defined to be $\|v\|=\sqrt{\langle v,v\rangle}$^[In some texts, the term here is the *induced norm* by the inner product, and the notion of a norm is generalized to be a function that has a particular set of properties, including those proved in the following theorem.]
+
+:::{.callout-note}
+## Theorem: Norm Properties
+Let $V$ be an inner product space with $u,v\in V$. $c\in\mathbb R$. Then
+
+a) $\|cv\|=|c|\|v\|$
+b) $\|v\|=0\iff v=\textbf{0}$
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Proof of a)
+Observe that
+
+$$
+\begin{align}
+\|cv\| &= \sqrt{\langle cv,cv\rangle}\\
+       &= \sqrt{c^2\langle v,v\rangle}\\
+       &= \sqrt{c^2}\sqrt{\langle v,v\rangle}\\
+       &= |c|\|v\|
+\end{align}
+$$
+
+Proof of b)
+If $\|v\|=0$, Then
+
+$$
+\begin{align}
+0 &= \|v\|\\
+  &= \sqrt{\langle v,v\rangle}
+\end{align}
+$$
+
+So $0=\sqrt{\langle v,v\rangle}$, squaring both sides gives us $0=\langle v,v\rangle$ which means that $v=\textbf{0}$ by definition of an inner product.
+
+If $v=\textbf{0}$, then
+
+$$
+\begin{align}
+\|v\| &= \sqrt{\langle v,v\rangle}\\
+      &= \sqrt{\langle\textbf{0},\textbf{0}\rangle}\\
+      &=\sqrt{0}\\
+      &=0
+\end{align}
+$$
+$\blacksquare$
 :::
