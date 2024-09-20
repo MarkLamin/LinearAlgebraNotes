@@ -141,11 +141,11 @@ There is only one element, $\textbf{0}$, in $V$ that has the property that for a
 ## Proof
 
 Suppose there are two elements, $\textbf{0}_1$ and $\textbf{0}_2$ in $V$ that have the identity property. Then, observe that
-$$\begin{align}
+\begin{align}
 \textbf{0}_1 &= \textbf{0}_1 + \textbf{0}_2 \text{ (because $\textbf{0}_2$ is an identity element)}\\
              &= \textbf{0}_2 + \textbf{0}_1 \text{ (commutative property of vector addition)}\\
              &= \textbf{0}_2                \text{ (because $\textbf{0}_1$ is an identity element)}
-\end{align} $$
+\end{align}
 
 Thus, all identity elements are the same, so the zero element in $V$ is unique, which is what we wanted to show. $\blacksquare$
 :::
@@ -159,7 +159,7 @@ For all $v\in V$, there exists a [unique]{.underline} $w\in V$ such that $v + w 
 ## Proof
 
 Let $v\in V$ be arbitrary, and let $w,u\in V$ such that $v + w = \textbf{0}$ and that $v + u = \textbf{0}$.^[We know this is possible as Property 4 demonstrates existence of an inverse.] Observe that
-$$\begin{align}
+\begin{align}
 v + w = v + u &\implies (v + w) + w = (v + u) + w \text{ (transitive property of equality)}\\
 &\implies w + (v + w) = w + (v + u) \text{ (commutativity of vector addition)}\\
 &\implies (w + v) + w = (w + v) + u \text{ (associativity of vector addition)}\\
@@ -167,7 +167,7 @@ v + w = v + u &\implies (v + w) + w = (v + u) + w \text{ (transitive property of
 &\implies \textbf{0} + w = \textbf{0} + u\\
 &\implies w + \textbf{0} = u + \textbf{0} \text{ (commutativity of vector addition)}\\
 &\implies w = u \text{ (identity of zero vector under addition)}
-\end{align}$$
+\end{align}
 
 Thus, all additive inverses of $v$ are equal, so the additive inverse of $v$ is unique, which is what we wanted to show. $\blacksquare$
 :::
@@ -195,21 +195,21 @@ What's the difference between 0 and $\textbf{0}$? Remember, $0\in\mathbb R$ refe
 ## Proof
 
 Observe that
-$$
+
 \begin{align}
 0v &= (0+0)v\\
    &= 0v + 0v \text{ (distributive property)}
 \end{align}
-$$
+
 
 Using this result, we observe that
-$$
+
 \begin{align}
 0v = 0v + 0v &\implies 0v + -(0v) = 0v + 0v + -(0v)\\
              &\implies \textbf{0} = 0v + \textbf{0}\\
              &\implies \textbf{0} = 0v \text{ (identity of zero vector)}
 \end{align}
-$$
+
 
 Therefore, $0v=\textbf{0}$, which is what we wanted to show. $\blacksquare$
 :::
@@ -223,21 +223,19 @@ For all $c\in \mathbb R$, $c\textbf{0}=\textbf{0}$.
 ## Proof
 Observe that
 
-$$
 \begin{align}
 c\textbf{0} &= c(\textbf{0} + \textbf{0}) \text{ (identity property of $\textbf{0}$)}\\
             &= c\textbf{0} + c\textbf{0} \text{ (distributive property)}\\
 \end{align}
-$$
 
 Using this result, we observe that
-$$
+
 \begin{align}
 c\textbf{0} = c\textbf{0} + c\textbf{0} &\implies c\textbf{0} - c\textbf{0} = c\textbf{0} + c\textbf{0} - c\textbf{0}\\
 &\implies \textbf{0} = c\textbf{0} + \textbf{0} \text{ (identity property of zero vector)}\\
 &\implies \textbf{0} = c\textbf{0}
 \end{align}
-$$
+
 Thus, $c\textbf{0} = \textbf{0}$ which is what we wanted to show. $\blacksquare$
 :::
 
@@ -265,24 +263,22 @@ Remember, $-v$ refers to the (unique) additive inverse of $v$ while $-1v$ refers
 :::{.callout-note collapse=true}
 ## Proof
 Observe that
-$$
+
 \begin{align}
 \textbf{0} &= 0v \text{ (see previous theorem)}\\
            &= (1+(-1))v\\
            &= 1v + (-1)v \text{ (distributive property)}\\
            &= v + (-1)v \text{ (identity property of scalar multiplication)}
 \end{align}
-$$
 
 Then observe that
-$$
+
 \begin{align}
 \textbf{0} = v + (-1)v &\implies \textbf{0} + (-v) = v + (-1)v + (-v)\\
                        &\implies -v = v-v + (-1)v \text{ (commutative and associative properties of vector addition)}\\
                        &\implies -v = \textbf{0} + (-1)v\\
                        &\implies -v=-1v \text{ (identity property of vector addition)}
 \end{align}
-$$
 
 Therefore, $-v=-1v$ which is what we wanted to show. $\blacksquare$
 :::
@@ -295,7 +291,7 @@ For $c\in\mathbb R$ and $v\in V$, $-(cv)=(-c)v=-1(cv)=c*(-v)$.
 :::{.callout-note collapse=true}
 ## Proof
 Observe that
-$$
+
 \begin{align}
 -(cv) &= -1(cv) \text{ (see previous lemma)}\\
       &= (-1c)v \text{ (property of scalar multiplication)}\\
@@ -305,7 +301,6 @@ $$
       &= c*(-v)
       &\blacksquare
 \end{align}
-$$
 :::
 Thus, we can use $-cv$ freely without worrying about how it is interpreted.
 
@@ -324,13 +319,11 @@ Suppose $cv=\textbf{0}$. Consider two cases:
 
 In the first case, there is nothing to show as $c=0$. In the second scenario, $\frac{1}{c}$ is well defined. Observe that
 
-$$
 \begin{align}
 cv=\textbf{0} &\implies \frac{1}{c}cv = \frac{1}{c}\textbf{0}\\
               &\implies 1v            = \textbf{0} \text{ (see previous theorem)}\\
               &\implies v             = \textbf{0} \text{ (identity in scalar multiplication)}
 \end{align}
-$$
 
 Thus, in this case $v=\textbf{0}$. Therefore, in both cases, either $c=0$ or $v=\textbf{0}$, which is what we wanted to show. $\blacksquare$
 :::
@@ -355,14 +348,14 @@ We will prove by induction.
 (Base Case) When $n=1$, $\sum\limits_{i=1}^nv_i = v_1$ by definition of sigma notation, and $v_1=1v_1$ by definition of vector spaces.
 
 (Induction Hypothesis) Assume that the theorem is true for some $n\in\mathbb N$. Then,
-$$
+
 \begin{align}
 \sum\limits_{i=1}^{n+1}v &= v + \left(\sum\limits_{i=1}^nv\right)\\
                         &= v + nv\\
                         &= (1+n)v\\
                         &= (n+1)v
 \end{align}
-$$
+
 Thus, for all $n\in\mathbb N$, $\sum\limits_{i=1}^nv=nv$, which is what we wanted to show. $\blacksquare$
 
 :::
@@ -387,14 +380,14 @@ c) For all $s,t\in S$, $s + t\in S$. ^[That is, $S$ is closed under vector addit
 :::{.callout-note collapse=true}
 ## Proof
 $(\implies):$ Suppose $S$ is a vector space. Then, b) and c) hold from properties 1 and 6 of the Vector Spaces Definition, respectively. To prove a), we recall from previous theorems that $S$ contains a unique additive identity. Suppose $\textbf{0}_S\in S$ is the additive identity of $S$ and $\textbf{0}_V\in V$ is the additive identity of $V$. Since $S\subseteq V$, $\textbf{0}_S\in V$, and similarly, for any $s\in S$, $s\in V$. Therefore, the following two equations hold in $V$: $$s+\textbf{0}_S=s$$ $$s+\textbf{0}_V=s$$ Therefore, 
-$$
+
 \begin{align}
 s+\textbf{0}_S = s+\textbf{0}_V &\implies s-s+\textbf{0}_S=s-s+\textbf{0}_V\\ 
                                 &\implies \textbf{0}_V + \textbf{0}_S = \textbf{0}_V + \textbf{0}_V\\
                                 &\implies \textbf{0}_S + \textbf{0}_V = \textbf{0}_V\\
                                 &\implies \textbf{0}_S = \textbf{0}_V
 \end{align}
-$$
+
 
 Since $\textbf{0}_S = \textbf{0}_V$, $\textbf{0}_V\in S$, thus completing this side of the proof.
 
@@ -427,25 +420,25 @@ Let $V$ be a vector space and $v_1,...,v_k\in V$. Then, $\text{span}(v_1,...,v_n
 :::{.callout-note collapse=true}
 ## Proof
 Suppose $w\in\text{span}(v_1,...,v_n)$. Then, there exist $c_1,...,c_n\in\mathbb R$ such that $w=\sum\limits_{i=1}^nc_iv_i$. If $c_1=\dots c_n=0$, then $w=\textbf{0}$ (how can we prove this?). Suppose $a\in\mathbb R$. Then observe that
-$$
+
 \begin{align}
 aw &= a\sum\limits_{i=1}^nc_iv_i\\
    &= \sum\limits_{i=1}^na(c_iv_i)\\
    &= \sum\limits_{i=1}^n(ac_i)v_i
 \end{align}
-$$
+
 
 Since each $ac_i\in\mathbb R$, $aw\in\text{span}(v_1,...,v_n)$.
 
 Suppose $u\in\text{span}(v_1,...,v_n)$, then there exist $d_1,\dots,d_n\in\mathbb R$ such that $u=\sum\limits_{i=1}^nd_iv_i$. Observe that
 
-$$
+
 \begin{align}
 w+u &= \sum\limits_{i=1}^nc_iv_i +\sum\limits_{i=1}^nd_iv_i\\
     &= \sum\limits_{i=1}^n(c_iv_i + d_iv_i) \text{ (associative property)}\\
     &= \sum\limits_{i=1}^n(c_i + d_i)v_i \text{ (distributive property)}
 \end{align}
-$$
+
 
 Since each $c_i+d_i\in\mathbb R$, $w+u\in\text{span}(v_1,...,v_n)$. Therefore, $\text{span}(v_1,...,v_n)$ is a subspace of $V$ because it satisfies the three properties demonstrated by the previous theorem. $\blacksquare$
 :::
@@ -460,7 +453,7 @@ Let $V$ be a vector space and $v_1,...,v_n\in V$. If there exists $i$ such that 
 Without loss of generality, suppose $i=n$. Then, we want to show that $\text{span}(v_1,...,v_n)=\text{span}(v_1,...,v_{n-1})$. We know that $\text{span}(v_1,...,v_{n-1})\subseteq\text{span}(v_1,...,v_n)$ since $\{v_1,...,v_{n-1}\}\subseteq\{v_1,...,v_n\}$.
 
 Suppose $w\in\text{span}(v_1,...,v_n)$. Then, there exists $c_1,...,c_n\in\mathbb R$ such that $w=\sum\limits_{i=1}^nc_iv_i$. Since $v_n\in\text{span}(v_1,...,v_{n-1})$, there exists $d_1,...,d_{n-1}\in\mathbb R$ such that $v_n=\sum\limits_{i=1}^{n-1}d_iv_i$. Therefore,
-$$
+
 \begin{align}
 w &= \sum\limits_{i=1}^nc_iv_i\\
   &= \left(\sum\limits_{i=1}^{n-1}c_iv_i\right) + c_nv_n\\
@@ -469,7 +462,7 @@ w &= \sum\limits_{i=1}^nc_iv_i\\
   &= \sum\limits_{i=1}^{n-1}\left(c_i + c_nd_i\right)v_i\\
   &\in\text{span}(v_1,...,v_{n-1})
 \end{align}
-$$
+
 
 Thus, $\text{span}(v_1,...,v_{n})\subseteq\text{span}(v_1,...,v_{n-1})$. Therefore, $\text{span}(v_1,...,v_{n})=\text{span}(v_1,...,v_{n-1})$, which is what we wanted to show. $\blacksquare$
 :::
@@ -505,14 +498,14 @@ If a set of vectors, $v_1,...,v_n$ contains $\textbf{0}$, then it is not a linea
 ## Proof
 Without loss of generality, suppose $v_1=\textbf{0}$. Then define $c_1,...,c_n\in\mathbb R$ such that $c_1=1$, and $c_i=0$ for $i=2,...,n$. Then,
 
-$$
+
 \begin{align}
 \sum\limits_{i=1}^nc_iv_i &= 1v_1 + \sum\limits_{i=2}^n0v_i\\
                           &= v_1 + \sum\limits_{i=2}^n\textbf{0}\\
                           &= \textbf{0} + \textbf{0}\\
                           &= \textbf{0}
 \end{align}
-$$
+
 
 Thus, $\sum\limits_{i=1}^nc_iv_i=0$ does not imply that $c_1=...=c_n=0$ since there is an example with $c_1\neq0$ and $\sum\limits_{i=1}^nc_iv_i=0$. Thus, the set is not linearly independent, which is what we wanted to show. $\blacksquare$
 :::
@@ -532,13 +525,13 @@ $(\implies)$ Suppose $S$ is a linearly independent set. Then property a) is sati
 Assume towards contradiction that b) does not hold. Then, without loss of generality, let's say that vector is $v_n$. From the previous theorem's proof, we know we can write $\sum\limits_{i=1}^nc_iv_i$ as $\sum\limits_{i=1}^{n-1}\left(c_i + c_nd_i\right)v_i$ where $c_i, d_i\in\mathbb R$. If we choose each $c_i=1$ and each $d_i=-1$, then we have $\sum\limits_{i=1}^nc_iv_i=\textbf{0}$, but not all $c_i$'s are 0. Thus, the set is not linearly independent, showing a contradiction and showing that property b) must, indeed, hold.
 
 $(\impliedby)$ Here we will prove the contrapositive. That means that we will assume $S$ is linearly dependent, and show that a) and b) do not both hold. If $\textbf{0}\in S$, then a) does not hold and there is nothing further to show. If $\textbf{0}\notin S$, then we need to show that b) is not possible. Since $S$ is linearly dependent, then there exists $c_1,...,c_n\in\mathbb R$ which are not all 0 such that $\sum\limits_{i=1}^nc_iv_i=\textbf{0}$. Let $j$ be the maximum of $\{1,...,n\}$ such that $c_j\neq0$. Then,
-$$
+
 \begin{align}
 \sum\limits_{i=1}^nc_iv_i=\textbf{0} &\implies\sum\limits_{i=1}^jc_iv_i=\textbf{0}\\
                                      &\implies\sum\limits_{i=1}^{j-1}c_iv_i = -c_jv_j\\
                                      &\implies\sum\limits_{i=1}^{j-1}\left(-\frac{c_i}{c_j}\right)v_i = v_j
 \end{align}
-$$
+
 Therefore, $v_j$ is in the span of the other vectors, so b) is not possible.
 
 $\blacksquare$
@@ -570,7 +563,7 @@ If a vector space, $V$, has a basis, then any vector, $v\in V$ can be written as
 :::{.callout-note collapse=true}
 ## Proof:
 Let $B=\{b_1,...,b_n\}$ be a basis of $V$, let $v\in V$, and let $c_1,...,c_n,d_1,...,d_n$ be such that $$v = \sum\limits_{i=1}^nc_ib_i = \sum\limits_{i=1}^nd_ib_i$$ Thus, observe that 
-$$
+
 \begin{align}
 \sum\limits_{i=1}^nc_ib_i = \sum\limits_{i=1}^nd_ib_i &\implies \sum\limits_{i=1}^nc_ib_i - \left(\sum\limits_{i=1}^nd_ib_i\right)=\textbf{0}\\
 &\implies \sum\limits_{i=1}^n(c_ib_i-d_ib_i)=\textbf{0}\\
@@ -578,7 +571,7 @@ $$
 &\implies c_i-d_i=0, \forall i \text{ Since $B$ is a linearly independent set}\\
 &\implies c_i=d_i, \forall i
 \end{align}
-$$
+
 
 Thus, $v$ is a unique linear combination of the basis vectors, which is what we wanted to show. $\blacksquare$
 :::
@@ -617,12 +610,12 @@ For the base case, consider the set $\{u_1\}\cup W$. Since $W$ spans $V$, $\{u_1
 Now, we re label the remaining $w_i$ vectors so our set that spans $V$ is $\{u_1,w_2,...,w_m\}$.
 
 For the induction hypothesis, suppose that we were able to successfully replace $k$ (with $k<n$) vectors in $W$ with vectors. Assume towards contradiction that we've replaced all the vectors in $W$ with vectors in $U$.^[This either means that $k=m$ or that $k>m$ and that we eventually would just add vectors from $U$ and not removing any vectors.] Then, the set $\{u_1,...,u_k\}$ spans $V$. However, this means that $u_{k+1}\in\text{span}(\{u_1,...,u_k\})$, which implies that $\{u_1,...,u_{k+1}\}$ is a linearly dependent set which is a contradiction. Thus, $k<m\implies k+1\leq m$. As with the base case, we can relabel the remaining vectors in $W$ such that our new spanning set is $\{u_1,...,u_k,w_{k+1},...,w_m\}$.^[where, of course, in the case that $k+1=m$, $w_{k+1}$ is the last vector in the set.] Since $u_{k+1}\in\text{span}(u_1,...,u_k,w_{k+1},...,w_m)$, there exist scalars $c_1,...,c_n$ such that $$u_{k+1}=\sum\limits_{i=1}^kc_iu_i +\sum\limits_{i=k+1}^mc_iw_i$$ Assume towards contradiction that $c_{k+1}=...=c_m=0$, then this implies $u_{k+1}\in\text{span}(u_1,...,u_k)$ which implies that $\{u_1,...,u_{k=1}\}$ is not linearly independent, hence a contradiction. Thus, at least one of the scalars for the $w_i's$ is non zero. Choose $g$ to be the max of $k+1,...,m$ such that $c_g\neq0$. Then
-$$
+
 \begin{align}
 u_{k+1}=\sum\limits_{i=1}^kc_iu_i +\sum\limits_{i=k+1}^gc_iw_i &\implies u_{k+1} -\left(\sum\limits_{i=1}^kc_iu_i\right) - \left(\sum\limits_{i=k+1}^{g-1}c_iw_i\right)=c_gw_g\\
                                                                &\implies \frac{1}{c_g}u_{k+1} -\left(\sum\limits_{i=1}^k\frac{c_i}{c_g}u_i\right)-\left(\sum\limits_{i=k+1}^{g-1}\frac{c_i}{c_g}w_i\right)=w_g
 \end{align}
-$$
+
 
 Thus, $w_g$ is in the span of the other vectors, so we can remove it from the list without changing the span. Without loss of generality, we can re label the remaining $w_i$ vectors such that the new list is $\{u_1,...,u_{k+1},w_{k+2},..,w_m\}$.
 
@@ -678,19 +671,19 @@ Let $V,W$ be vector spaces and suppose $T\in\mathcal L(V,W)$. Then $T(\textbf{0}
 :::{.callout-note collapse=true}
 # Proof
 Observe that
-$$
+
 \begin{align}
 T(\textbf{0}_V) &= T(\textbf{0}_V+\textbf{0}_V)\\
                 &= T(\textbf{0}_V) + T(\textbf{0}_V)
 \end{align}
-$$
+
 
 Thus, observe that
-$$
+
 \begin{align}
 T(\textbf{0}_V) = T(\textbf{0}_V) + T(\textbf{0}_V) &\implies \textbf{0}_W = T(\textbf{0}_V)
 \end{align}
-$$
+
 
 Thus $T(\textbf{0}_V)=\textbf{0}_W$, which is what we wanted to show. $\blacksquare$
 :::
@@ -719,25 +712,21 @@ For this proof, let $R, S, T\in\mathcal L(V, W)$, $u,v\in V$, and $a,b,c\in\math
  
  To show $S+T$ is a linear map, observe that
  
- $$
  \begin{align}
  (S+T)(u+v) &= S(u+v) + T(u+v)\\
             &= Su + Sv + Tu + Tv\\
             &= (Su + Tu) + (Sv + Tv)\\
             &= (S+T)u + (S+T)v
  \end{align}
- $$
  
  and also observe that
  
- $$
  \begin{align}
  (S+T)cv &= Scv + Tcv\\
          &= cSv + cTv\\
          &= c(Sv+Tv)\\
          &= c(S+T)v
  \end{align}
- $$
  
  Thus, $\mathcal L(V,W)$ is closed under vector addition.
 
@@ -745,50 +734,42 @@ For this proof, let $R, S, T\in\mathcal L(V, W)$, $u,v\in V$, and $a,b,c\in\math
 
 Observe that 
 
-$$
 \begin{align}
 (S+T)v &= Sv + Tv\\
        &= Tv + Sv\\
        &= (T+S)v
 \end{align}
-$$
 
 **Associativity of Vector Addition**
 
 Observe that
 
-$$
 \begin{align}
 (R + (S+T))v &= Rv + (Sv + Tv)\\
              &= (Rv + Sv) + Tv\\
              &= (R+S)v + Tv\\
              &= ((R+S) + T)v
 \end{align}
-$$
 
 **Identity of Vector Addition**
 
 Define the map $Tv=\textbf{0}_W$ for all $v\in V$ where $\textbf{0}_W$ is the zero vector in $W$. Then, $T$ is the zero vector of $\mathcal L(V,W)$. To show this, observe that
 
-$$
 \begin{align}
 (S+T)v &= Sv + Tv\\
        &= Sv + \textbf{0}_W\\
        &= Sv
 \end{align}
-$$
 
 **Invertibility of Vector Addition**
 
 Let $v\in V$. Define $w=Tv$. Then define $S\in\mathcal L(V,W)$, such that $Sv=-w$. Then, 
 
-$$
 \begin{align}
 (T+S)v &= Tv + Sv\\
        &= w - w\\
        &= \textbf{0}_W
 \end{align}
-$$
 
 **Closure of Scalar Mulitplication**
 
@@ -796,11 +777,9 @@ The set of inputs to $cT(v)$ are the same as to $T(v)$ so $cT$ has domain $V$. $
 
 To show that $cT$ is a linear map, observe that
 
-$$
 \begin{align}
 cT(u+v) &= cTu + cTv
 \end{align}
-$$
 
 and that
 
@@ -819,40 +798,33 @@ Therefore, $\mathcal L(V,W)$ is closed under scalar multiplication.
 
 Observe that 
 
-$$
 \begin{align}
 a(c(Tv)) &= (ac)(Tv)\\
          &= (acT)v
 \end{align}
-$$
 
 **Identity of Scalar Multiplication**
 
 Observe that 
 
-$$
 \begin{align}
 (1T)v &= 1(Tv)\\
       &= Tv
 \end{align}
-$$
 
 **Distributivity**
 
 Observe that
 
-$$
 \begin{align}
 ((a+b)T)v &= (a+b)(Tv)\\
           &= a(Tv) + b(Tv)\\
           &= (aT)v + (bT)v\\
           &= (aT + bT)v
 \end{align}
-$$
 
 and that
 
-$$
 \begin{align}
 (a(S+T))v &= a((S+T)v)\\
           &= a(Sv + Tv)\\
@@ -860,7 +832,6 @@ $$
           &= (aS)v + (aT)v\\
           &= (aS + aT)v
 \end{align}
-$$
 
 Thus, $\mathcal L(V,W)$ is a vector space which is what we wanted to show. $\blacksquare$
 :::
@@ -888,7 +859,6 @@ Let $V,W,X, Y$ be vector spaces and let $T\in\mathcal L(V,W)$, $S\in\mathcal L(W
 
 Observe that
 
-$$
 \begin{align}
 (R(ST))v &= R(STv)\\
          &= R(S(Tv))\\
@@ -896,7 +866,6 @@ $$
          &= (RS(T))v \\
          \blacksquare
 \end{align}
-$$
 :::
 
 :::{.callout-tip}
@@ -915,21 +884,17 @@ Let $V$ be a vector space. Then, $I_V$ is a linear map.
 ## Proof
 Let $v,w\in V$ and let $c\in\mathbb R$. Then observe that
 
-$$
 \begin{align}
 I(v+w) &= v+w\\
        &= Iv + Iw
 \end{align}
-$$
 
 And that
 
-$$
 \begin{align}
 I(cv) &= cv\\
       &= c(Iv)
 \end{align}
-$$
 
 $\blacksquare$
 :::
@@ -946,14 +911,13 @@ Suppose $V,W$ are vector spaces, and let $T\in\mathcal L(V,W)$. Then for all $v\
 
 Observe that
 
-$$
 \begin{align}
 I_WTv &= I_W(Tv)\\
       &= Tv\\
       &= T(I_Vv)\\
       &= TI_Vv
 \end{align}
-$$ 
+
 $\blacksquare$
 :::
 
@@ -971,18 +935,15 @@ ii) $S_1(T_1 + T_2)v = (S_1T_1 + S_1T_2)v$
 
 Observe that
 
-$$
 \begin{align}
 (S_1+S_2)T_1v &= (S_1+S_2)(T_1v)\\
               &= S_1(T_1v) + S_2(T_1v)\\
               &= S_1T_1v + S_2T_1v\\
               &= (S_1T_1 + S_2T_1)v
 \end{align}
-$$
 
 and also observe that
 
-$$
 \begin{align}
 S_1(T_1 + T_2)v &= S_1((T_1 + T_2)v)\\
                 &= S_1(T_1v + T_2v)\\
@@ -991,7 +952,6 @@ S_1(T_1 + T_2)v &= S_1((T_1 + T_2)v)\\
                 &= S_1T_1v + S_1T_2v\\
                 &=(S_1T_1 + S_1T_2)v
 \end{align}
-$$
 
 $\blacksquare$
 :::
@@ -1032,12 +992,10 @@ $(\implies)$ First, suppose that $T$ is injective. Then, since $T(\textbf{0}_V)=
 
 $(\impliedby)$ On the other hand, suppose that $\text{null}(T)=\textbf{0}_V$. Let $u,v\in V$ and suppose $Tu=Tv$. Observe that
 
-$$
 \begin{align}
 \textbf{0}_W &= Tu - Tv\\
              &= T(u-v)
 \end{align}
-$$
 
 Then, $T(u-v)\in\text{null}(T)$, so $u-v=\textbf{0}_V\implies u=v$, so $T$ is injective.
 
@@ -1057,7 +1015,6 @@ Let $V,W$ be vector spaces and let $T\in\mathcal L(V, W)$ such that $T$ is inver
 ## Proof
 Suppose $S_1,S_2\in\mathcal L(W,V)$ both have the property that $S_jT=I_V$ and $TS_j=I_W$ for $j=1,2$. Then observe that
 
-$$
 \begin{align}
 S_1 &= S_1I_W\\
     &= S_1(TS_2)\\
@@ -1065,7 +1022,6 @@ S_1 &= S_1I_W\\
     &= I_VS_2\\
     &= S_2
 \end{align}
-$$
 
 Thus all inverses of $T$ are equal, so the inverse of $T$ is unique. $\blacksquare$
 :::
@@ -1087,23 +1043,19 @@ Let $V,W$ be vector spaces and let $T\in\mathcal L(V, W)$. Then $T$ is invertibl
 ## Proof
 $(\implies)$ First suppose that $T$ is invertible. Then, let $v_1,v_2,\in V$ such that $Tv_1=Tv_2$. Observe that
 
-$$
 \begin{align}
 Tv_1=Tv_2 &\implies T^{-1}Tv_1=T^{-1}Tv_2\\
           &\implies I_Vv_1 = I_vv_2\\
           &\implies v_1 = v_2
 \end{align}
-$$
 
 Thus, $T$ is injective. Now, suppose $w\in W$. Observe that $T^{-1}w\in V$. Therefore,
 
-$$
 \begin{align}
 T(T^{-1}w) &= (TT^{-1})w\\
            &= I_Ww\\
            &= w
 \end{align}
-$$
 
 Therefore, for all $w\in W$, there exists an element in $V$, namely, $T^{-1}(w)$, such that $T$ maps that element to $w$. Thus, $T$ is surjective.
 
@@ -1111,33 +1063,28 @@ Since $T$ is injective and surjective, $T$ must be bijective, completing this di
 
 $(\impliedby)$ Now, suppose $T$ is bijective. Then since $T$ is surjective, for every $w\in W$, there exists a $v\in V$ such that $Tv=w$. Since $T$ is injective, this $v$ is unique. We can therefore construct the well-defined function $S:W\to V$ such that $T(S(w))=w\implies T(S(w))=I_Ww$. Observe that for all $v\in V$,
 
-$$
+
 \begin{align}
 T(S(Tv)) &= T(v)
 \end{align}
-$$
 
 Which implies that $S(T(v)) = v$ since $T$ is injective. Thus, $S(Tv)=I_Vv$.
 
 To complete the proof then, it is sufficient to show that $S$ is a linear map. Suppose $w_1,w_2\in W$ and $c\in\mathbb R$. Then observe that
 
-$$
 \begin{align}
 T(S(w_1+w_2)) &= w_1 + w_2\\
               &= T(S(w_1)) + T(S(w_2))\\
               &= T(S(w_1) + S(w_2)) \text{ (by linearity of } T\text{)}
 \end{align}
-$$
 
 Then $T$'s injectivity shows that $S(w_1+w_2) = S(w_1) + S(w_2)$. Similarly, observe that
 
-$$
 \begin{align}
 T(S(cw_1)) &= cw_1\\
            &= c T(S(w_1))\\
            &= T(cS(w_1))\text{ (by linearity of } T\text{)}
 \end{align}
-$$
 
 Again, by injectivity of $T$, $cS(w_1)=S(cw_1)$. Thus, $S$ is linear, showing that $S=T^{-1}$. Therefore, if $T$ is bijective, then $T$ is invertible, finishing this direction of the proof. $\blacksquare$
 :::
@@ -1170,7 +1117,6 @@ ii) Let $T\in\mathcal L(V, W)$ be an isomorphism. Since $T$ is bijective, $T$ is
 
 iii) Let $T\in\mathcal L(V,W)$ and $S\in\mathcal L(W, X)$. Then define $R = ST\in\mathcal L(V, X)$. Observe that
 
-$$
 \begin{align}
 ST(T^{-1}S^{-1}) &= S(TT^{-1})S^{-1}\\
                  &= SI_WS^{-1}\\
@@ -1178,18 +1124,15 @@ ST(T^{-1}S^{-1}) &= S(TT^{-1})S^{-1}\\
                  &= SS^{-1}\\
                  &= I_X
 \end{align}
-$$
 
 and that
 
-$$
 \begin{align}
 (T^{-1}S^{-1})ST &= T^{-1}(S^{-1}S)T\\
                  &= T^{-1}I_WT\\
                  &= T^{-1}T\\
                  &= I_V
 \end{align}
-$$
 
 Thus, $R=ST$ is invertible^[In fact, this proves that if a linear map, $ST$, is invertible, that $(ST)^{-1}=T^{-1}S^{-1}$], so $R$ is a bijection, and thus an isomorpshism from $V$ to $X$, so $V\cong X$, which is what we wanted to show.
 
@@ -1208,12 +1151,10 @@ Let $V,W$ be isomorphic vector spaces and let $T\in\mathcal L(V, W)$ be an isomo
 ## Proof
 Let $c_1,...,c_n\in\mathbb R$ such that $\sum\limits_{i=1}^nc_iT(v_i)=\textbf{0}_W$. Since $T$ is linear, observe that
 
-$$
 \begin{align}
 \textbf{0}_W &= \sum\limits_{i=1}^nc_iT(v_i)\\
              &= T\left(\sum\limits_{i=1}^nc_iv_i\right)
 \end{align}
-$$
 
 Since $T$ is injective, this implies that $\sum\limits_{i=1}^nc_iv_i=\textbf{0}_W$. Since $\{v_1,...,v_n\}$ is a linearly independent set, this means that $c_1=...=c_n=0$. Thus, $\{T(v_1),...,T(v_n)\}$ is a linearly independent set in $W$, which is what we wanted to show. $\blacksquare$
 :::
@@ -1229,15 +1170,12 @@ $(\impliedby)$ Suppose $\text{dim}(V)=\text{dim}(W)$. Let $\{v_1,...v_n\}$ be a 
 
 Let $u\in V$ be arbitrary. Then $u$ is entirely defined as a unique linear combination of basis vectors in $V$. Thus, any function of $u$ can be defined as a function of $c_1v_1+...+c_nv_n$. Let $T\in\mathcal L(V, W)$. Then
 
-$$
 \begin{align}
 T\left(\sum\limits_{i=1}^nc_iv_i\right) &= \sum\limits_{i=1}^nc_iT(v_i)
 \end{align}
-$$
 
 Thus, $T$ is entirely determined by where it maps the basis vectors of $V$. Define $T$ such that $T(v_i)=w_i$ for $i=1,...,n$. Thus, $$\sum\limits_{i=1}^nc_iw_i$$ We can conclude that $\text{Range}(T)$ are all vectors of the form $\sum\limits_{i=1}^nc_iw_i$ for $c_i\in\mathbb R$. Thus, $\text{Range}(T)=\text{span}(w_1,...,w_n)=W$. Thus, $T$ is surjective. Now, suppose $u_1,u_2\in V$ where $T(u_1)=T(u_2)$. Observe that
 
-$$
 \begin{align}
 T(u_1)=T(u_2) &\implies T\left(\sum\limits_{i=1}^nc_iv_i\right) = T\left(\sum\limits_{i=1}^nd_iv_i\right)\\
               &\implies \sum\limits_{i=1}^nc_iT(v_i) = \sum\limits_{i=1}^nd_iT(v_i)\\
@@ -1245,13 +1183,11 @@ T(u_1)=T(u_2) &\implies T\left(\sum\limits_{i=1}^nc_iv_i\right) = T\left(\sum\li
               &\implies \sum\limits_{i=1}^n(c_iw_i-d_iw_i) = \textbf{0}_W\\
               &\implies \sum\limits_{i=1}^n(c_i-d_i)w_i=\textbf{0}_W
 \end{align}
-$$
 
 Since the $w_i$'s are independent since the vectors are part of a basis, then $c_i=d_i$ for all $i=1,...,n$. Thus $u_1=u_2$, so $T$ is injective. Thus, $T$ is bijective and is therefore an isomorphism from $V$ to $W$. Thus, $V\cong W$.
 
 $(\implies)$ Now suppose $V\cong W$. Since $V$ has finite dimension, let $n=\text{dim}(V)$. Then there exists a basis of length $n$ in $V$, say $\{v_1,...,v_2\}$. As shown in the previous theorem, if $T$ is an isomorphism from $V$ to $W$, then $\{T(v_1),...,T(v_n)\}$ is a linearly independent set in $W$. Observe that
 
-$$
 \begin{align}
 W &= \text{Range}(T)\\
   &= \{Tv: v\in V\}\\
@@ -1259,7 +1195,6 @@ W &= \text{Range}(T)\\
   &= \left\{\sum\limits_{i=1}^ncT(v_i): c_i\in\mathbb R\right\}\\
   &=\text{span}(Tv_1,...,Tv_n)
 \end{align}
-$$
 
 Since $\{T(v_1),...,T(v_n)\}$ is a linearly independent set and spans $W$, it is a basis of $W$. Thus, $W$ has dimension $n$ since its basis is of length $n$. Therefore, $\text{dim}(W)=n=\text{dim}(V)$. 
 
@@ -1359,36 +1294,30 @@ Proof of 1)
 
 Observe that for all $v\in V$,
 
-$$
 \begin{align}
 \langle v,\textbf{0}\rangle &= \langle v,\textbf{0} + \textbf{0}\rangle\\
                             &= \langle\textbf{0} + \textbf{0}, v\rangle\\
                             &= \langle\textbf{0}, v\rangle + \langle\textbf{0},v\rangle\\
                             &= \langle v,\textbf{0}\rangle + \langle v,\textbf{0}\rangle 
 \end{align}
-$$
 
 Thus, $\langle v,\textbf{0}\rangle = \langle v,\textbf{0}\rangle + \langle v,\textbf{0}\rangle$ which means that $0=\langle v,\textbf{0}\rangle=\langle\textbf{0}, v\rangle$ which is what we wanted to show.
 
 Proof of 2) Observe that
 
-$$
 \begin{align}
 \langle u, v+w\rangle &= \langle v+w, u\rangle\\
                       &= \langle v, u\rangle + \langle w,u\rangle\\
                       &= \langle u,v\rangle + \langle u,w\rangle
 \end{align}
-$$
 
 Proof of 3) Observe that
 
-$$
 \begin{align}
 \langle u, cv\rangle &= \langle cv, u\rangle\\
                      &= c\langle v,u\rangle\\
                      &= c\langle u,v\rangle
 \end{align}
-$$
 
 $\blacksquare$
 :::
@@ -1421,37 +1350,31 @@ b) $\|v\|=0\iff v=\textbf{0}$
 Proof of a)
 Observe that
 
-$$
 \begin{align}
 \|cv\| &= \sqrt{\langle cv,cv\rangle}\\
        &= \sqrt{c^2\langle v,v\rangle}\\
        &= \sqrt{c^2}\sqrt{\langle v,v\rangle}\\
        &= |c|\|v\|
 \end{align}
-$$
 
 Proof of b)
 If $\|v\|=0$, Then
 
-$$
 \begin{align}
 0 &= \|v\|\\
   &= \sqrt{\langle v,v\rangle}
 \end{align}
-$$
 
 So $0=\sqrt{\langle v,v\rangle}$, squaring both sides gives us $0=\langle v,v\rangle$ which means that $v=\textbf{0}$ by definition of an inner product.
 
 If $v=\textbf{0}$, then
 
-$$
 \begin{align}
 \|v\| &= \sqrt{\langle v,v\rangle}\\
       &= \sqrt{\langle\textbf{0},\textbf{0}\rangle}\\
       &=\sqrt{0}\\
       &=0
 \end{align}
-$$
 $\blacksquare$
 :::
 
@@ -1481,14 +1404,13 @@ Let $V$ be an inner product space where $u,v\in V$ are orthogonal. Then $$\|u+v\
 ## Proof
 Observe that 
 
-$$
 \begin{align}
 \|u+v\|^2 &= \langle u+v, u+v\rangle\\
           &= \langle u,u\rangle + \langle u,v\rangle + \langle v,u\rangle + \langle v,v\rangle\\
           &= \|u\|^2 + 0 + 0 + \|v\|^2\\
           &= \|u\|^2 + \|v\|^2
 \end{align}
-$$
+
 $\blacksquare$
 :::
 
@@ -1503,7 +1425,6 @@ If $v=\textbf{0}$, then $$|\langle u,v\rangle| = |\langle u,\textbf{0}\rangle|=|
 
 If $v\neq\textbf{0}$, then $\|v\|\neq0$. Define $w=u-\frac{\langle u,v\rangle}{\|v\|^2}v$. Observe that
 
-$$
 \begin{align}
 \langle v,w\rangle &= \left\langle v, u-\frac{\langle u,v\rangle}{\|v\|^2}v\right\rangle\\
                    &= \langle v,u\rangle - \left\langle v, \frac{\langle u,v\rangle}{\|v\|^2}v\right\rangle\\
@@ -1512,11 +1433,9 @@ $$
                    &= \langle u,v\rangle - \langle u,v\rangle\\
                    &= 0
 \end{align}
-$$
 
 So $v,w$ are orthogonal and so are $cv, w$ for any $c\in\mathbb R$ since $$\langle cv,w\rangle=c\langle v,w\rangle = c*0=0$$ In this case we choose $c=\frac{\langle u,v\rangle}{\|v\|^2}$ and observe that $w=u-cv$. Using the pythagorean theorem, observe that
 
-$$
 \begin{align}
 \|u\|^2 &= \|cv + (u-cv)\|^2\\
         &= \|cv + w\|^2\\
@@ -1526,11 +1445,9 @@ $$
         &= c^2\|v\|^2 + \|w\|^2\\
         &\geq c^2\|v\|^2
 \end{align}
-$$
 
 Using this result, observe that
 
-$$
 \begin{align}
 \|u\|^2\geq c^2\|v\|^2 &\implies \|u\|^2\geq \left(\frac{\langle u,v\rangle}{\|v\|^2}\right)^2\|v\|^2\\
                        &\implies \|u\|^2\geq\frac{\langle u,v\rangle^2\|v\|^2}{\|v\|^4}\\
@@ -1539,7 +1456,6 @@ $$
                        &\implies \left(\|u\|\|v\|\right)^2\geq\langle u,v\rangle^2\\
                        &\implies \|u\|\|v\|\geq|\langle u,v\rangle|
 \end{align}
-$$
 
 Which is what we wanted to show. $\blacksquare$
 :::
@@ -1553,7 +1469,6 @@ Let $V$ be an inner product space with $u,v\in V$. Then $\|u+v\|\leq\|u\|+\|v\|$
 ## Proof
 We start from the Cauchy-Schwartz Inequality and continue from there, noting that $\langle u,v\rangle\leq|\langle u,v\rangle|$
 
-$$
 \begin{align}
 |\langle u,v\rangle|\leq\|u\|\|v\| &\implies \langle u,v\rangle\leq\|u\|\|v\|\\
                                    &\implies 2\langle u,v\rangle\leq2\|u\|\|v\|\\
@@ -1565,5 +1480,92 @@ $$
                                    &\implies \|u+v\|\leq\|u\|+\|v\|
                                    &&\blacksquare
 \end{align}
-$$
+:::
+
+## The Orthogonal Basis
+
+> Let $V$ be an inner product space. Then a set, $\{v_1,...,v_n\}\subseteq V$ is called an *orthogonal set* if each vector is pairwise orthogonal. That is, $\langle v_i,v_j\rangle=0$ when $i\neq j$
+
+> A set is called an *orthonormal set* if it is an orthogonal set and the norm of each vector in the set is 1.
+
+:::{.callout-tip}
+The zero vector cannot be contained in an orthonormal set since the norm of the zero vector is 0.
+:::
+
+:::{.callout-note}
+## Theorem: Orthogonality and Span
+Let $V$ be an inner product space and let $\{b_1,...,b_n\}\subseteq V$ be an orthonormal set. Then any vector is orthogonal to anything in the span of the remaining vectors. That is $$\langle b_i, v\rangle=0$$ when $$v\in\text{span}(\{b_j: j\neq i\})$$
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Without loss of generality let $i=n$. Let $c_1,...,c_{n-1}\in\mathbb R$. Then observe that
+
+\begin{align}
+\left\langle\sum\limits_{i=1}^{n-1}c_ib_i, b_n\right\rangle &=\sum\limits_{i=1}^{n-1}\left\langle c_ib_i, b_n\right\rangle\\
+&= \sum\limits_{i=1}^{n-1}c_i\left\langle b_i,b_n\right\rangle\\
+&= \sum\limits_{i=1}^{n-1}(c_i*0)\\
+&= \sum\limits_{i=1}^{n-1}0\\
+&= 0
+\end{align}
+
+Thus, $b_n$ is orthogonal to anything in the span of the remaining vectors. Since the choice of $i=n$ was arbitrary, this proves the theorem.
+:::
+
+:::{.callout-note}
+## Expanded Pythagorean Theorem
+Let $V$ be an inner product space and let $\{b_1,...,b_n\}\subseteq V$ be an orthonormal set and let $c_1,...,c_n\in\mathbb R$. Then $$\left\|\sum\limits_{i=1}^nc_ib_i\right\|^2 = \sum\limits_{i=1}^nc_i^2$$
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+We will prove this by induction on $n$, the number of vectors in the orthonormal set.
+
+In the base case with $n=1$, observe that
+
+\begin{align}
+\left\|\sum\limits_{i=1}^1c_ib_i\right\|^2 &= \|c_1b_1\|^2\\
+                                         &= |c_1|^2\|b\|^2\\
+                                         &= |c_1|^2*1^2\\
+                                         &= c_1^2\\
+                                         &= \sum\limits_{i=1}^1c_i^2
+\end{align}
+
+For the induction hypothesis, suppose the theorem is true for some $k\in\mathbb N$. Then observe
+
+\begin{align}
+\left\|\sum\limits_{i=1}^{k+1}c_ib_i\right\|^2 &= \left\|c_{k+1}b_{k+1}+\sum\limits_{i=1}^{k}c_ib_i\right\|^2\\
+&= \|c_{k+1}b_{k+1}\|^2 + \left\|\sum\limits_{i=1}^{k}c_ib_i\right\|^2\\
+&= |c_{k+1}|^2\|b_{k+1}\|^2 + \sum\limits_{i=1}^k|c_i|^2\\
+&= |c_{k+1}|^2*1^2 + \sum\limits_{i=1}^k|c_i|^2\\
+&= |c_{k+1}|^2+ \sum\limits_{i=1}^k|c_i|^2\\
+&= \sum\limits_{i=1}^{k+1}|c_i|^2\\
+&= \sum\limits_{i=1}^{k+1}c_i^2
+&&\blacksquare
+\end{align}
+:::
+
+:::{.callout-note}
+## Theorem: Linear Independence and Orthonormality
+An orthonormal set is a linearly independent set.
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Let $\{b_1,...,b_n\}$ be an orthonormal set, and let $c_1,...,c_n\in\mathbb R$ such that $$\sum\limits_{i=1}^{n}c_ib_i=\textbf{0}$$ Observe that
+
+\begin{align}
+\sum\limits_{i=1}^{n}c_ib_i=\textbf{0} &\implies \left\|\sum\limits_{i=1}^{n}c_ib_i\right\|^2 = \|\textbf{0}\|^2\\
+&\implies\sum\limits_{i=1}^n|c_i|^2=0\\
+\end{align}
+
+We take care to note that $\sum\limits_{i=1}^n|c_i|^2$ is the sum of non-negative terms. Since this sum equals 0, that means that every term in the sum is zero. Observe that
+
+
+\begin{align}
+|c_i|^2 = 0 &\implies c_i^2=0\\
+&\implies c_i=0
+\end{align}
+
+Thus, the orthonormal set is linearly independent, which is what we wanted to show.
 :::
