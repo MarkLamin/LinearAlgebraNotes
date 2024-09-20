@@ -1330,4 +1330,9 @@ But we don't have to give up. We might not have a $v$ that perfectly solves the 
 
 These questions are answered with the following structures and definitions in this section.
 
-## Inner Product Spaces
+## Inner Product Spaces 
+
+> For a vector space, $V$, an *inner product* is a function from $V\times V\to\mathbb R$, notated as <,> that meets the following criteria
+>
+> a) For all $v\in V$, <v,v>\geq0
+b) For all $v\in V$,  $<v,v>=0 \iff v=\textbf{0}$ 
