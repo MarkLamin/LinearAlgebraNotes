@@ -134,6 +134,7 @@ window.Quarto = {
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">7.1</span> Motivation</a></li>
   <li><a href="#inner-products" id="toc-inner-products" class="nav-link" data-scroll-target="#inner-products"><span class="header-section-number">7.2</span> Inner Products</a></li>
   <li><a href="#norms" id="toc-norms" class="nav-link" data-scroll-target="#norms"><span class="header-section-number">7.3</span> Norms</a></li>
+  <li><a href="#orthogonality" id="toc-orthogonality" class="nav-link" data-scroll-target="#orthogonality"><span class="header-section-number">7.4</span> Orthogonality</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -2233,8 +2234,21 @@ Inner Products of Large Sums
 <section id="norms" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="norms"><span class="header-section-number">7.3</span> Norms</h2>
 <blockquote class="blockquote">
-<p>Let <span class="math inline">\(V\)</span> be an inner product space. Then, for <span class="math inline">\(v\in V\)</span>, the <em>norm</em> of <span class="math inline">\(V\)</span>, notated as <span class="math inline">\(\|v\|\)</span> is defined to be <span class="math inline">\(\|v\|=\sqrt{\langle v,v\rangle}\)</span><a href="#fn28" class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a></p>
+<p>Let <span class="math inline">\(V\)</span> be an inner product space. Then, for <span class="math inline">\(v\in V\)</span>, the <em>norm</em> of <span class="math inline">\(V\)</span>, notated as <span class="math inline">\(\|v\|\)</span> is defined<a href="#fn28" class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a> to be <span class="math inline">\(\|v\|=\sqrt{\langle v,v\rangle}\)</span></p>
 </blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is a norm?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Norms generalize the idea of a vector’s length. In <span class="math inline">\(\mathbb R^n\)</span> for <span class="math inline">\(n=1,2,3\)</span>, the norm of a vector actually is its length! However, in other spaces, the norm of a vector is more emblematic of the vector’s length rather than a geometrical measurement.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2253,7 +2267,7 @@ Theorem: Norm Properties
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-86-contents" aria-controls="callout-86" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-87-contents" aria-controls="callout-87" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2262,7 +2276,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-86" class="callout-86-contents callout-collapse collapse">
+<div id="callout-87" class="callout-87-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Proof of a) Observe that</p>
 <p><span class="math display">\[
@@ -2290,6 +2304,181 @@ Proof
       &amp;=0
 \end{align}
 \]</span> <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="orthogonality" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="orthogonality"><span class="header-section-number">7.4</span> Orthogonality</h2>
+<blockquote class="blockquote">
+<p>Let <span class="math inline">\(V\)</span> be an inner product space. Then two vectors, <span class="math inline">\(u,v\in V\)</span> are called <em>orthogonal</em> if <span class="math inline">\(\langle u,v\rangle=0\)</span>.</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is orthogonality?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Orthogonality generalizes the idea of vectors being perpendicular in a similar way that norms generalize length.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zero Vector and Orthogonality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The zero vector is orthogonal to every vector and is the only vector to be orthogonal to itself. These follow from the properties and definitions of an inner product, respectively.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pythagorean Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(V\)</span> be an inner product space where <span class="math inline">\(u,v\in V\)</span> are orthogonal. Then <span class="math display">\[\|u+v\|^2 = \|u\|^2 \|v\|^2\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-91-contents" aria-controls="callout-91" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-91" class="callout-91-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Observe that</p>
+<p><span class="math display">\[
+\begin{align}
+\|u+v\|^2 &amp;= \langle u+v, u+v\rangle\\
+          &amp;= \langle u,u\rangle + \langle u,v\rangle + \langle v,u\rangle + \langle v,v\rangle\\
+          &amp;= \|u\|^2 + 0 + 0 + \|v\|^2\\
+          &amp;= \|u\|^2 + \|v\|^2
+\end{align}
+\]</span> <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: Cauchy Schwartz Inequality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(V\)</span> be an inner product space with <span class="math inline">\(u,v\in V\)</span>. Then <span class="math inline">\(|\langle u,v\rangle|\leq\|u\|\|v\|\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-93-contents" aria-controls="callout-93" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-93" class="callout-93-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(v=\textbf{0}\)</span>, then <span class="math display">\[|\langle u,v\rangle| = |\langle u,\textbf{0}\rangle|=|0|=0\]</span> Similarly, <span class="math display">\[\|u\|\|v\|=\|u\|\|\textbf{0}\|=\|u\|*0=0\]</span> So the inequality is an equality in the case where <span class="math inline">\(v=\textbf{0}\)</span>.</p>
+<p>If <span class="math inline">\(v\neq\textbf{0}\)</span>, then <span class="math inline">\(\|v\|\neq0\)</span>. Define <span class="math inline">\(w=u-\frac{\langle u,v\rangle}{\|v\|^2}v\)</span>. Observe that</p>
+<p><span class="math display">\[
+\begin{align}
+\langle v,w\rangle &amp;= \left\langle v, u-\frac{\langle u,v\rangle}{\|v\|^2}v\right\rangle\\
+                   &amp;= \langle v,u\rangle - \left\langle v, \frac{\langle u,v\rangle}{\|v\|^2}v\right\rangle\\
+                   &amp;= \langle u,v\rangle - \frac{\langle u,v\rangle}{\|v\|^2}\langle v,v\rangle\\
+                   &amp;= \langle u,v\rangle - \frac{\langle u,v\rangle}{\|v\|^2}\|v\|^2\\
+                   &amp;= \langle u,v\rangle - \langle u,v\rangle\\
+                   &amp;= 0
+\end{align}
+\]</span></p>
+<p>So <span class="math inline">\(v,w\)</span> are orthogonal and so are <span class="math inline">\(cv, w\)</span> for any <span class="math inline">\(c\in\mathbb R\)</span> since <span class="math display">\[\langle cv,w\rangle=c\langle v,w\rangle = c*0=0\]</span> In this case we choose <span class="math inline">\(c=\frac{\langle u,v\rangle}{\|v\|^2}\)</span> and observe that <span class="math inline">\(w=u-cv\)</span>. Using the pythagorean theorem, observe that</p>
+<p><span class="math display">\[
+\begin{align}
+\|u\|^2 &amp;= \|cv + (u-cv)\|^2\\
+        &amp;= \|cv + w\|^2\\
+        &amp;= \|cv\|^2 + \|w\|^2\\
+        &amp;= \left(|c|\|v\|\right)^2 + \|w\|^2\\
+        &amp;= |c|^2\|v\|^2 + \|w\|^2\\
+        &amp;= c^2\|v\|^2 + \|w\|^2\\
+        &amp;\geq c^2\|v\|^2
+\end{align}
+\]</span></p>
+<p>Using this result, observe that</p>
+<p><span class="math display">\[
+\begin{align}
+\|u\|^2\geq c^2\|v\|^2 &amp;\implies \|u\|^2\geq \left(\frac{\langle u,v\rangle}{\|v\|^2}\right)^2\|v\|^2\\
+                       &amp;\implies \|u\|^2\geq\frac{\langle u,v\rangle^2\|v\|^2}{\|v\|^4}\\
+                       &amp;\implies \|u\|^2\geq\frac{\langle u,v\rangle^2}{\|v\|^2}\\
+                       &amp;\implies \|u\|^2\|v\|^2\geq\langle u,v\rangle^2\\
+                       &amp;\implies \left(\|u\|\|v\|\right)^2\geq\langle u,v\rangle^2\\
+                       &amp;\implies \|u\|\|v\|\geq|\langle u,v\rangle|
+\end{align}
+\]</span></p>
+<p>Which is what we wanted to show. <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: Triangle Inequality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(V\)</span> be an inner product space with <span class="math inline">\(u,v\in V\)</span>. Then <span class="math inline">\(\|u+v\|\leq\|u\|+\|v\|\)</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-95-contents" aria-controls="callout-95" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-95" class="callout-95-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We start from the Cauchy-Schwartz Inequality and continue from there, noting that <span class="math inline">\(\langle u,v\rangle\leq|\langle u,v\rangle|\)</span></p>
+<p><span class="math display">\[
+\begin{align}
+|\langle u,v\rangle|\leq\|u\|\|v\| &amp;\implies \langle u,v\rangle\leq\|u\|\|v\|\\
+                                   &amp;\implies 2\langle u,v\rangle\leq2\|u\|\|v\|\\
+                                   &amp;\implies \langle u,u\rangle + 2\langle u,v\rangle + \langle v,v\rangle \leq \|u\|^2 + 2\|u\|\|v\| + \|v\|^2\\
+                                   &amp;\implies \langle u,u\rangle + \langle u,v\rangle + \langle v,u\rangle + \langle v,v\rangle\leq\left(\|u\|+\|v\|\right)^2\\
+                                   &amp;\implies \langle u, u+v\rangle + \langle v,u+v\rangle \leq\left(\|u\|+\|v\|\right)^2\\
+                                   &amp;\implies \langle u+v, u+v\rangle +\leq\left(\|u\|+\|v\|\right)^2\\
+                                   &amp;\implies \|u+v\|^2\leq\left(\|u\|+\|v\|\right)^2\\
+                                   &amp;\implies \|u+v\|\leq\|u\|+\|v\|
+                                   &amp;&amp;\blacksquare
+\end{align}
+\]</span></p>
 </div>
 </div>
 </div>

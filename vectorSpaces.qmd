@@ -1400,7 +1400,13 @@ Induction can be used to prove similar properties with sums of more than two vec
 
 ## Norms
 
-> Let $V$ be an inner product space. Then, for $v\in V$, the *norm* of $V$, notated as $\|v\|$ is defined to be $\|v\|=\sqrt{\langle v,v\rangle}$^[In some texts, the term here is the *induced norm* by the inner product, and the notion of a norm is generalized to be a function that has a particular set of properties, including those proved in the following theorem.]
+> Let $V$ be an inner product space. Then, for $v\in V$, the *norm* of $V$, notated as $\|v\|$ is defined^[In some texts, the term here is the *induced norm* by the inner product, and the notion of a norm is generalized to be a function that has a particular set of properties, including those proved in the following theorem.] to be $\|v\|=\sqrt{\langle v,v\rangle}$
+
+:::{.callout-tip}
+## What is a norm?
+
+Norms generalize the idea of a vector's length. In $\mathbb R^n$ for $n=1,2,3$, the norm of a vector actually is its length! However, in other spaces, the norm of a vector is more emblematic of the vector's length rather than a geometrical measurement.
+:::
 
 :::{.callout-note}
 ## Theorem: Norm Properties
@@ -1447,4 +1453,117 @@ $$
 \end{align}
 $$
 $\blacksquare$
+:::
+
+## Orthogonality
+
+> Let $V$ be an inner product space. Then two vectors, $u,v\in V$ are called *orthogonal* if $\langle u,v\rangle=0$.
+
+:::{.callout-tip}
+## What is orthogonality?
+
+Orthogonality generalizes the idea of vectors being perpendicular in a similar way that norms generalize length.
+:::
+
+:::{.callout-tip}
+## Zero Vector and Orthogonality
+
+The zero vector is orthogonal to every vector and is the only vector to be orthogonal to itself. These follow from the properties and definitions of an inner product, respectively.
+:::
+
+:::{.callout-note}
+## Pythagorean Theorem
+
+Let $V$ be an inner product space where $u,v\in V$ are orthogonal. Then $$\|u+v\|^2 = \|u\|^2 \|v\|^2$$
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Observe that 
+
+$$
+\begin{align}
+\|u+v\|^2 &= \langle u+v, u+v\rangle\\
+          &= \langle u,u\rangle + \langle u,v\rangle + \langle v,u\rangle + \langle v,v\rangle\\
+          &= \|u\|^2 + 0 + 0 + \|v\|^2\\
+          &= \|u\|^2 + \|v\|^2
+\end{align}
+$$
+$\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem: Cauchy Schwartz Inequality
+Let $V$ be an inner product space with $u,v\in V$. Then $|\langle u,v\rangle|\leq\|u\|\|v\|$. 
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+If $v=\textbf{0}$, then $$|\langle u,v\rangle| = |\langle u,\textbf{0}\rangle|=|0|=0$$ Similarly, $$\|u\|\|v\|=\|u\|\|\textbf{0}\|=\|u\|*0=0$$ So the inequality is an equality in the case where $v=\textbf{0}$.
+
+If $v\neq\textbf{0}$, then $\|v\|\neq0$. Define $w=u-\frac{\langle u,v\rangle}{\|v\|^2}v$. Observe that
+
+$$
+\begin{align}
+\langle v,w\rangle &= \left\langle v, u-\frac{\langle u,v\rangle}{\|v\|^2}v\right\rangle\\
+                   &= \langle v,u\rangle - \left\langle v, \frac{\langle u,v\rangle}{\|v\|^2}v\right\rangle\\
+                   &= \langle u,v\rangle - \frac{\langle u,v\rangle}{\|v\|^2}\langle v,v\rangle\\
+                   &= \langle u,v\rangle - \frac{\langle u,v\rangle}{\|v\|^2}\|v\|^2\\
+                   &= \langle u,v\rangle - \langle u,v\rangle\\
+                   &= 0
+\end{align}
+$$
+
+So $v,w$ are orthogonal and so are $cv, w$ for any $c\in\mathbb R$ since $$\langle cv,w\rangle=c\langle v,w\rangle = c*0=0$$ In this case we choose $c=\frac{\langle u,v\rangle}{\|v\|^2}$ and observe that $w=u-cv$. Using the pythagorean theorem, observe that
+
+$$
+\begin{align}
+\|u\|^2 &= \|cv + (u-cv)\|^2\\
+        &= \|cv + w\|^2\\
+        &= \|cv\|^2 + \|w\|^2\\
+        &= \left(|c|\|v\|\right)^2 + \|w\|^2\\
+        &= |c|^2\|v\|^2 + \|w\|^2\\
+        &= c^2\|v\|^2 + \|w\|^2\\
+        &\geq c^2\|v\|^2
+\end{align}
+$$
+
+Using this result, observe that
+
+$$
+\begin{align}
+\|u\|^2\geq c^2\|v\|^2 &\implies \|u\|^2\geq \left(\frac{\langle u,v\rangle}{\|v\|^2}\right)^2\|v\|^2\\
+                       &\implies \|u\|^2\geq\frac{\langle u,v\rangle^2\|v\|^2}{\|v\|^4}\\
+                       &\implies \|u\|^2\geq\frac{\langle u,v\rangle^2}{\|v\|^2}\\
+                       &\implies \|u\|^2\|v\|^2\geq\langle u,v\rangle^2\\
+                       &\implies \left(\|u\|\|v\|\right)^2\geq\langle u,v\rangle^2\\
+                       &\implies \|u\|\|v\|\geq|\langle u,v\rangle|
+\end{align}
+$$
+
+Which is what we wanted to show. $\blacksquare$
+:::
+
+:::{.callout-note}
+## Theorem: Triangle Inequality
+Let $V$ be an inner product space with $u,v\in V$. Then $\|u+v\|\leq\|u\|+\|v\|$
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+We start from the Cauchy-Schwartz Inequality and continue from there, noting that $\langle u,v\rangle\leq|\langle u,v\rangle|$
+
+$$
+\begin{align}
+|\langle u,v\rangle|\leq\|u\|\|v\| &\implies \langle u,v\rangle\leq\|u\|\|v\|\\
+                                   &\implies 2\langle u,v\rangle\leq2\|u\|\|v\|\\
+                                   &\implies \langle u,u\rangle + 2\langle u,v\rangle + \langle v,v\rangle \leq \|u\|^2 + 2\|u\|\|v\| + \|v\|^2\\
+                                   &\implies \langle u,u\rangle + \langle u,v\rangle + \langle v,u\rangle + \langle v,v\rangle\leq\left(\|u\|+\|v\|\right)^2\\
+                                   &\implies \langle u, u+v\rangle + \langle v,u+v\rangle \leq\left(\|u\|+\|v\|\right)^2\\
+                                   &\implies \langle u+v, u+v\rangle +\leq\left(\|u\|+\|v\|\right)^2\\
+                                   &\implies \|u+v\|^2\leq\left(\|u\|+\|v\|\right)^2\\
+                                   &\implies \|u+v\|\leq\|u\|+\|v\|
+                                   &&\blacksquare
+\end{align}
+$$
 :::
