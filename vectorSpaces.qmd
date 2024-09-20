@@ -1332,7 +1332,7 @@ These questions are answered with the following structures and definitions in th
 
 ## Inner Product Spaces 
 
-> For a vector space, $V$, an *inner product* is a function from $V\times V\to\mathbb R$, notated as <,> that meets the following criteria
+> For a vector space, $V$, an *inner product* is a function from $V\times V\to\mathbb R$, notated as $<,>$ that meets the following criteria
 >
-> a) For all $v\in V$, <v,v>\geq0
+> a) For all $v\in V$, $<v,v>\geq0$
 b) For all $v\in V$,  $<v,v>=0 \iff v=\textbf{0}$ 
