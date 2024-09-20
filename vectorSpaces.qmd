@@ -1394,6 +1394,6 @@ $\blacksquare$
 :::
 
 :::{.callout-tip}
-## Inner Products of Sums
+## Inner Products of Large Sums
 Induction can be used to prove similar properties with sums of more than two vectors. For example, if $u,v_1,...,v_n\in V$ for some inner product space $V$, then $$\left\langle u,\sum\limits_{i=1}^nv_i\right\rangle = \sum\limits_{i=1}^n\langle u,v_i\rangle$$
 :::
