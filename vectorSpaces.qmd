@@ -1266,7 +1266,7 @@ Since $\{T(v_1),...,T(v_n)\}$ is a linearly independent set and spans $W$, it is
 Therefore, $V\cong W$ if and only if $\text{dim}(W)=\text{dim}(V)$, which is what we wanted to show. $\blacksquare$
 :::
 
-## Examples (Verify)
+### Isomorphism Examples (Verify)
 
 For the following examples, let $V,W$ be vector spaces with dimensions $n$ and $m$, respectively, for $n,m\in\mathbb N$. $\mathcal P_n$ refers to the set of all polynomials of degree $n$ or less.
 
