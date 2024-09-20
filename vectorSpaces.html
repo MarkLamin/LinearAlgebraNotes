@@ -2143,13 +2143,13 @@ Proof
 <section id="inner-product-spaces" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="inner-product-spaces"><span class="header-section-number">7.2</span> Inner Product Spaces</h2>
 <blockquote class="blockquote">
-<p>For a vector space, <span class="math inline">\(V\)</span>, an <em>inner product</em> is a function from <span class="math inline">\(V\times V\to\mathbb R\)</span>, notated as <span class="math inline">\(&lt;,&gt;\)</span> that meets the following criteria</p>
+<p>For a vector space, <span class="math inline">\(V\)</span>, an <em>inner product</em> is a function from <span class="math inline">\(V\times V\to\mathbb R\)</span>, notated as <span class="math inline">\(\langle,\rangle\)</span> that meets the following criteria</p>
 <ol type="a">
-<li>For all <span class="math inline">\(v\in V\)</span>, <span class="math inline">\(&lt;v,v&gt;\geq0\)</span><a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a></li>
-<li>For all <span class="math inline">\(v\in V\)</span>, <span class="math inline">\(&lt;v,v&gt;=0 \iff v=\textbf{0}\)</span></li>
-<li>For all <span class="math inline">\(u,v\in V\)</span>, <span class="math inline">\(&lt;u,v&gt;=&lt;v,u&gt;\)</span><a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a></li>
-<li>For all <span class="math inline">\(u,v\in V\)</span> and <span class="math inline">\(c\in\mathbb R\)</span>, <span class="math inline">\(&lt;cu,v&gt;=c&lt;u,v&gt;\)</span></li>
-<li>For all <span class="math inline">\(u,v,w\in V &lt;u+v, w&gt; = &lt;u,w&gt; + &lt;v,w&gt;\)</span></li>
+<li>For all <span class="math inline">\(v\in V\)</span>, <span class="math inline">\(\langle v,v\rangle\geq0\)</span><a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a></li>
+<li>For all <span class="math inline">\(v\in V\)</span>, <span class="math inline">\(\langle v,v\rangle=0 \iff v=\textbf{0}\)</span></li>
+<li>For all <span class="math inline">\(u,v\in V\)</span>, <span class="math inline">\(\langle u,v\rangle=\langle v,u\rangle\)</span><a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a></li>
+<li>For all <span class="math inline">\(u,v\in V\)</span> and <span class="math inline">\(c\in\mathbb R\)</span>, <span class="math inline">\(\langle cu,v\rangle=c\langle u,v\rangle\)</span></li>
+<li>For all <span class="math inline">\(u,v,w\in V \langle u+v, w\rangle = \langle u,w\rangle + \langle v,w\rangle\)</span></li>
 </ol>
 <p>A vector space equipped with an inner product is called and <em>Inner Product Space</em>.</p>
 </blockquote>
@@ -2166,9 +2166,66 @@ Theorem: Inner Product Properties
 <div class="callout-body-container callout-body">
 <p>Suppose <span class="math inline">\(V\)</span> is an inner product space, <span class="math inline">\(u,v,w\in V\)</span>, and <span class="math inline">\(c\in\mathbb R\)</span>. Then,</p>
 <ol type="1">
-<li></li>
-<li></li>
+<li><span class="math inline">\(\langle\textbf{0}, v\rangle = \langle v, \textbf{0}\rangle=0\)</span></li>
+<li><span class="math inline">\(\langle u, v+w\rangle = \langle u,v\rangle + \langle u, w\rangle\)</span></li>
+<li><span class="math inline">\(\langle u, cv\rangle=c\langle u,v\rangle\)</span></li>
 </ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-83-contents" aria-controls="callout-83" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-83" class="callout-83-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Proof of 1)</p>
+<p>Observe that for all <span class="math inline">\(v\in V\)</span>,</p>
+<p><span class="math display">\[
+\begin{align}
+\langle v,\textbf{0}\rangle &amp;= \langle v,\textbf{0} + \textbf{0}\rangle\\
+                            &amp;= \langle\textbf{0} + \textbf{0}, v\rangle\\
+                            &amp;= \langle\textbf{0}, v\rangle + \langle\textbf{0},v\rangle\\
+                            &amp;= \langle v,\textbf{0}\rangle + \langle v,\textbf{0}\rangle
+\end{align}
+\]</span></p>
+<p>Thus, <span class="math inline">\(\langle v,\textbf{0}\rangle = \langle v,\textbf{0}\rangle + \langle v,\textbf{0}\rangle\)</span> which means that <span class="math inline">\(0=\langle v,\textbf{0}\rangle=\langle\textbf{0}, v\rangle\)</span> which is what we wanted to show.</p>
+<p>Proof of 2) Observe that</p>
+<p><span class="math display">\[
+\begin{align}
+\langle u, v+w\rangle &amp;= \langle v+w, u\rangle\\
+                      &amp;= \langle v, u\rangle + \langle w,u\rangle\\
+                      &amp;= \langle u,v\rangle + \langle u,w\rangle
+\end{align}
+\]</span></p>
+<p>Proof of 3) Observe that</p>
+<p><span class="math display">\[
+\begin{align}
+\langle u, cv\rangle &amp;= \langle cv, u\rangle\\
+                     &amp;= c\langle v,u\rangle\\
+                     &amp;= c\langle u,v\rangle
+\end{align}
+\]</span></p>
+<p><span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Inner Products of Sums
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Induction can be used to prove similar properties with sums of more than two vectors. For example, if <span class="math inline">\(u,v_1,...,v_n\in V\)</span> for some inner product space <span class="math inline">\(V\)</span>, then <span class="math display">\[\left\langle u,\sum\limits_{i=1}^nv_i\right\rangle = \sum\limits_{i=1}^n\langle u,v_i\rangle\]</span></p>
 </div>
 </div>
 </section>

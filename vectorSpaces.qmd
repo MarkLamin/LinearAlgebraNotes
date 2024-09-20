@@ -1332,13 +1332,13 @@ These questions are answered with the following structures and definitions in th
 
 ## Inner Product Spaces 
 
-> For a vector space, $V$, an *inner product* is a function from $V\times V\to\mathbb R$, notated as $<,>$ that meets the following criteria
+> For a vector space, $V$, an *inner product* is a function from $V\times V\to\mathbb R$, notated as $\langle,\rangle$ that meets the following criteria
 >
-> a) For all $v\in V$, $<v,v>\geq0$^[positivity of inner products]
-b) For all $v\in V$,  $<v,v>=0 \iff v=\textbf{0}$
-c) For all $u,v\in V$, $<u,v>=<v,u>$^[symmetry of inner products]
-d) For all $u,v\in V$ and $c\in\mathbb R$, $<cu,v>=c<u,v>$
-e) For all $u,v,w\in V <u+v, w> = <u,w> + <v,w>$
+> a) For all $v\in V$, $\langle v,v\rangle\geq0$^[positivity of inner products]
+b) For all $v\in V$,  $\langle v,v\rangle=0 \iff v=\textbf{0}$
+c) For all $u,v\in V$, $\langle u,v\rangle=\langle v,u\rangle$^[symmetry of inner products]
+d) For all $u,v\in V$ and $c\in\mathbb R$, $\langle cu,v\rangle=c\langle u,v\rangle$
+e) For all $u,v,w\in V \langle u+v, w\rangle = \langle u,w\rangle + \langle v,w\rangle$
 >
 > A vector space equipped with an inner product is called and *Inner Product Space*.
 
@@ -1348,6 +1348,52 @@ The following theorem aids in our convenience of using algebra on inner products
 ## Theorem: Inner Product Properties
 Suppose $V$ is an inner product space, $u,v,w\in V$, and $c\in\mathbb R$. Then,
 
-1)
-2)
+1) $\langle\textbf{0}, v\rangle = \langle v, \textbf{0}\rangle=0$
+2) $\langle u, v+w\rangle = \langle u,v\rangle + \langle u, w\rangle$
+3) $\langle u, cv\rangle=c\langle u,v\rangle$
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+Proof of 1)
+
+Observe that for all $v\in V$,
+
+$$
+\begin{align}
+\langle v,\textbf{0}\rangle &= \langle v,\textbf{0} + \textbf{0}\rangle\\
+                            &= \langle\textbf{0} + \textbf{0}, v\rangle\\
+                            &= \langle\textbf{0}, v\rangle + \langle\textbf{0},v\rangle\\
+                            &= \langle v,\textbf{0}\rangle + \langle v,\textbf{0}\rangle 
+\end{align}
+$$
+
+Thus, $\langle v,\textbf{0}\rangle = \langle v,\textbf{0}\rangle + \langle v,\textbf{0}\rangle$ which means that $0=\langle v,\textbf{0}\rangle=\langle\textbf{0}, v\rangle$ which is what we wanted to show.
+
+Proof of 2) Observe that
+
+$$
+\begin{align}
+\langle u, v+w\rangle &= \langle v+w, u\rangle\\
+                      &= \langle v, u\rangle + \langle w,u\rangle\\
+                      &= \langle u,v\rangle + \langle u,w\rangle
+\end{align}
+$$
+
+Proof of 3) Observe that
+
+$$
+\begin{align}
+\langle u, cv\rangle &= \langle cv, u\rangle\\
+                     &= c\langle v,u\rangle\\
+                     &= c\langle u,v\rangle
+\end{align}
+$$
+
+$\blacksquare$
+:::
+
+:::{.callout-tip}
+## Inner Products of Sums
+Induction can be used to prove similar properties with sums of more than two vectors. For example, if $u,v_1,...,v_n\in V$ for some inner product space $V$, then $$\left\langle u,\sum\limits_{i=1}^nv_i\right\rangle = \sum\limits_{i=1}^n\langle u,v_i\rangle$$
 :::
