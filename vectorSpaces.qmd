@@ -1266,6 +1266,16 @@ Since $\{T(v_1),...,T(v_n)\}$ is a linearly independent set and spans $W$, it is
 Therefore, $V\cong W$ if and only if $\text{dim}(W)=\text{dim}(V)$, which is what we wanted to show. $\blacksquare$
 :::
 
+## Examples (Verify)
+
+For the following examples, let $V,W$ be vector spaces with dimensions $n$ and $m$, respectively, for $n,m\in\mathbb N$. $\mathcal P_n$ refers to the set of all polynomials of degree $n$ or less.
+
+* $V\cong\mathbb R^n$
+
+* $\mathcal P_n\cong\mathbb R^{n+1}$
+
+* $\mathcal L(V,W)\cong\mathbb R^{n\times m}\cong\mathbb R^{nm}$
+
 # Sums and Intersections of Vector Spaces
 
 The following definitions and theorems will be helpful as we explore projections and approximations.
