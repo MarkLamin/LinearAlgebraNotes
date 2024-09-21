@@ -1482,9 +1482,11 @@ We start from the Cauchy-Schwartz Inequality and continue from there, noting tha
 \end{align}
 :::
 
-## The Orthogonal Basis
+## Orthogonal Sets
 
 > Let $V$ be an inner product space. Then a set, $\{v_1,...,v_n\}\subseteq V$ is called an *orthogonal set* if each vector is pairwise orthogonal. That is, $\langle v_i,v_j\rangle=0$ when $i\neq j$
+
+### Orthonormal Sets
 
 > A set is called an *orthonormal set* if it is an orthogonal set and the norm of each vector in the set is 1.
 
@@ -1556,10 +1558,10 @@ Let $\{b_1,...,b_n\}$ be an orthonormal set, and let $c_1,...,c_n\in\mathbb R$ s
 
 \begin{align}
 \sum\limits_{i=1}^{n}c_ib_i=\textbf{0} &\implies \left\|\sum\limits_{i=1}^{n}c_ib_i\right\|^2 = \|\textbf{0}\|^2\\
-&\implies\sum\limits_{i=1}^n|c_i|^2=0\\
+&\implies\sum\limits_{i=1}^nc_i^2=0\\
 \end{align}
 
-We take care to note that $\sum\limits_{i=1}^n|c_i|^2$ is the sum of non-negative terms. Since this sum equals 0, that means that every term in the sum is zero. Observe that
+We take care to note that $\sum\limits_{i=1}^nc_i^2$ is the sum of non-negative terms. Since this sum equals 0, that means that every term in the sum is zero. Observe that
 
 
 \begin{align}
@@ -1567,5 +1569,7 @@ We take care to note that $\sum\limits_{i=1}^n|c_i|^2$ is the sum of non-negativ
 &\implies c_i=0
 \end{align}
 
-Thus, the orthonormal set is linearly independent, which is what we wanted to show.
+Thus, the orthonormal set is linearly independent, which is what we wanted to show. $\blacksquare$
 :::
+
+## The Orthonormal Basis

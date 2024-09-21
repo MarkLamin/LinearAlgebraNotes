@@ -135,7 +135,11 @@ window.Quarto = {
   <li><a href="#inner-products" id="toc-inner-products" class="nav-link" data-scroll-target="#inner-products"><span class="header-section-number">7.2</span> Inner Products</a></li>
   <li><a href="#norms" id="toc-norms" class="nav-link" data-scroll-target="#norms"><span class="header-section-number">7.3</span> Norms</a></li>
   <li><a href="#orthogonality" id="toc-orthogonality" class="nav-link" data-scroll-target="#orthogonality"><span class="header-section-number">7.4</span> Orthogonality</a></li>
-  <li><a href="#the-orthogonal-basis" id="toc-the-orthogonal-basis" class="nav-link" data-scroll-target="#the-orthogonal-basis"><span class="header-section-number">7.5</span> The Orthogonal Basis</a></li>
+  <li><a href="#orthogonal-sets" id="toc-orthogonal-sets" class="nav-link" data-scroll-target="#orthogonal-sets"><span class="header-section-number">7.5</span> Orthogonal Sets</a>
+  <ul class="collapse">
+  <li><a href="#orthonormal-sets" id="toc-orthonormal-sets" class="nav-link" data-scroll-target="#orthonormal-sets"><span class="header-section-number">7.5.1</span> Orthonormal Sets</a></li>
+  </ul></li>
+  <li><a href="#the-orthonormal-basis" id="toc-the-orthonormal-basis" class="nav-link" data-scroll-target="#the-orthonormal-basis"><span class="header-section-number">7.6</span> The Orthonormal Basis</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -2384,11 +2388,13 @@ Proof
 </div>
 </div>
 </section>
-<section id="the-orthogonal-basis" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="the-orthogonal-basis"><span class="header-section-number">7.5</span> The Orthogonal Basis</h2>
+<section id="orthogonal-sets" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="orthogonal-sets"><span class="header-section-number">7.5</span> Orthogonal Sets</h2>
 <blockquote class="blockquote">
 <p>Let <span class="math inline">\(V\)</span> be an inner product space. Then a set, <span class="math inline">\(\{v_1,...,v_n\}\subseteq V\)</span> is called an <em>orthogonal set</em> if each vector is pairwise orthogonal. That is, <span class="math inline">\(\langle v_i,v_j\rangle=0\)</span> when <span class="math inline">\(i\neq j\)</span></p>
 </blockquote>
+<section id="orthonormal-sets" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="orthonormal-sets"><span class="header-section-number">7.5.1</span> Orthonormal Sets</h3>
 <blockquote class="blockquote">
 <p>A set is called an <em>orthonormal set</em> if it is an orthogonal set and the norm of each vector in the set is 1.</p>
 </blockquote>
@@ -2518,17 +2524,21 @@ Proof
 <p>Let <span class="math inline">\(\{b_1,...,b_n\}\)</span> be an orthonormal set, and let <span class="math inline">\(c_1,...,c_n\in\mathbb R\)</span> such that <span class="math display">\[\sum\limits_{i=1}^{n}c_ib_i=\textbf{0}\]</span> Observe that</p>
 <p><span class="math display">\[\begin{align}
 \sum\limits_{i=1}^{n}c_ib_i=\textbf{0} &amp;\implies \left\|\sum\limits_{i=1}^{n}c_ib_i\right\|^2 = \|\textbf{0}\|^2\\
-&amp;\implies\sum\limits_{i=1}^n|c_i|^2=0\\
+&amp;\implies\sum\limits_{i=1}^nc_i^2=0\\
 \end{align}\]</span></p>
-<p>We take care to note that <span class="math inline">\(\sum\limits_{i=1}^n|c_i|^2\)</span> is the sum of non-negative terms. Since this sum equals 0, that means that every term in the sum is zero. Observe that</p>
+<p>We take care to note that <span class="math inline">\(\sum\limits_{i=1}^nc_i^2\)</span> is the sum of non-negative terms. Since this sum equals 0, that means that every term in the sum is zero. Observe that</p>
 <p><span class="math display">\[\begin{align}
 |c_i|^2 = 0 &amp;\implies c_i^2=0\\
 &amp;\implies c_i=0
 \end{align}\]</span></p>
-<p>Thus, the orthonormal set is linearly independent, which is what we wanted to show.</p>
+<p>Thus, the orthonormal set is linearly independent, which is what we wanted to show. <span class="math inline">\(\blacksquare\)</span></p>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="the-orthonormal-basis" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="the-orthonormal-basis"><span class="header-section-number">7.6</span> The Orthonormal Basis</h2>
 </section>
 </section>
 
