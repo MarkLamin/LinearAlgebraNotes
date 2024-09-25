@@ -135,11 +135,12 @@ window.Quarto = {
   <li><a href="#inner-products" id="toc-inner-products" class="nav-link" data-scroll-target="#inner-products"><span class="header-section-number">7.2</span> Inner Products</a></li>
   <li><a href="#norms" id="toc-norms" class="nav-link" data-scroll-target="#norms"><span class="header-section-number">7.3</span> Norms</a></li>
   <li><a href="#orthogonality" id="toc-orthogonality" class="nav-link" data-scroll-target="#orthogonality"><span class="header-section-number">7.4</span> Orthogonality</a></li>
-  <li><a href="#orthogonal-sets" id="toc-orthogonal-sets" class="nav-link" data-scroll-target="#orthogonal-sets"><span class="header-section-number">7.5</span> Orthogonal Sets</a>
+  <li><a href="#distance-between-vectors" id="toc-distance-between-vectors" class="nav-link" data-scroll-target="#distance-between-vectors"><span class="header-section-number">7.5</span> Distance Between Vectors</a></li>
+  <li><a href="#orthogonal-sets" id="toc-orthogonal-sets" class="nav-link" data-scroll-target="#orthogonal-sets"><span class="header-section-number">7.6</span> Orthogonal Sets</a>
   <ul class="collapse">
-  <li><a href="#orthonormal-sets" id="toc-orthonormal-sets" class="nav-link" data-scroll-target="#orthonormal-sets"><span class="header-section-number">7.5.1</span> Orthonormal Sets</a></li>
+  <li><a href="#orthonormal-sets" id="toc-orthonormal-sets" class="nav-link" data-scroll-target="#orthonormal-sets"><span class="header-section-number">7.6.1</span> Orthonormal Sets</a></li>
   </ul></li>
-  <li><a href="#the-orthonormal-basis" id="toc-the-orthonormal-basis" class="nav-link" data-scroll-target="#the-orthonormal-basis"><span class="header-section-number">7.6</span> The Orthonormal Basis</a></li>
+  <li><a href="#the-orthonormal-basis" id="toc-the-orthonormal-basis" class="nav-link" data-scroll-target="#the-orthonormal-basis"><span class="header-section-number">7.7</span> The Orthonormal Basis</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -2388,13 +2389,78 @@ Proof
 </div>
 </div>
 </section>
-<section id="orthogonal-sets" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="orthogonal-sets"><span class="header-section-number">7.5</span> Orthogonal Sets</h2>
+<section id="distance-between-vectors" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="distance-between-vectors"><span class="header-section-number">7.5</span> Distance Between Vectors</h2>
+<blockquote class="blockquote">
+<p>Let <span class="math inline">\(V\)</span> be an inner product space and let <span class="math inline">\(v,w\in V\)</span>. Then, the <em>distance</em> between <span class="math inline">\(v\)</span> and <span class="math inline">\(w\)</span> is notated and defined as <span class="math display">\[\text{dist}(v, w) = \|v-w\|\]</span></p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: Properties of a Metric
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(V\)</span> be an inner product space and let <span class="math inline">\(x,y,z\in V\)</span>. Then the following are true:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\text{dist}(x,x)=0\)</span></p></li>
+<li><p><span class="math inline">\(x\neq y\implies\text{dist}(x,y)&gt;0\)</span></p></li>
+<li><p><span class="math inline">\(\text{dist}(x,y)=\text{dist}(y,x)\)</span></p></li>
+<li><p><span class="math inline">\(\text{dist}(x,z) \leq\text{dist}(x,y) + \text{dist}(y,z)\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-97-contents" aria-controls="callout-97" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-97" class="callout-97-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Proof of (1): Observe that</p>
+<p><span class="math display">\[\begin{align*}
+\text{dist}(x,x) &amp;= \|x-x\|\\
+                 &amp;= \|\textbf{0}\|\\
+                 &amp;= 0
+\end{align*}\]</span></p>
+<p>Proof of (2): Let <span class="math inline">\(x\neq y\)</span> be vectors in <span class="math inline">\(V\)</span>. Then, <span class="math inline">\(x-y\neq0\)</span>, so <span class="math inline">\(\|x-y\|&gt;0\)</span>.</p>
+<p>Proof of (3): Observe that</p>
+<p><span class="math display">\[\begin{align*}
+\text{dist}(x,y) &amp;= \|x-y\|\\
+                 &amp;= \|-1*(y-x)\|\\
+                 &amp;= |-1|\|y-x\|\\
+                 &amp;= 1*\|y-x\|\\
+                 &amp;= \|y-x\|\\
+                 &amp;= \text{dist}(y,x)
+\end{align*}\]</span></p>
+<p>Proof of (4): Observe that</p>
+<p><span class="math display">\[
+\begin{align*}
+\text{dist}(x,z) &amp;= \|x-z\|\\
+                 &amp;= \|(x - y) + (y - z)\|\\
+                 &amp;\leq \|x-y\| + \|y-z\|\\
+                 &amp;= \text{dist}(x,y) + \text{dist}(y,z)
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="orthogonal-sets" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="orthogonal-sets"><span class="header-section-number">7.6</span> Orthogonal Sets</h2>
 <blockquote class="blockquote">
 <p>Let <span class="math inline">\(V\)</span> be an inner product space. Then a set, <span class="math inline">\(\{v_1,...,v_n\}\subseteq V\)</span> is called an <em>orthogonal set</em> if each vector is pairwise orthogonal. That is, <span class="math inline">\(\langle v_i,v_j\rangle=0\)</span> when <span class="math inline">\(i\neq j\)</span></p>
 </blockquote>
-<section id="orthonormal-sets" class="level3" data-number="7.5.1">
-<h3 data-number="7.5.1" class="anchored" data-anchor-id="orthonormal-sets"><span class="header-section-number">7.5.1</span> Orthonormal Sets</h3>
+<section id="orthonormal-sets" class="level3" data-number="7.6.1">
+<h3 data-number="7.6.1" class="anchored" data-anchor-id="orthonormal-sets"><span class="header-section-number">7.6.1</span> Orthonormal Sets</h3>
 <blockquote class="blockquote">
 <p>A set is called an <em>orthonormal set</em> if it is an orthogonal set and the norm of each vector in the set is 1.</p>
 </blockquote>
@@ -2425,7 +2491,7 @@ Theorem: Orthogonality and Span
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-98-contents" aria-controls="callout-98" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-100-contents" aria-controls="callout-100" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2434,7 +2500,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-98" class="callout-98-contents callout-collapse collapse">
+<div id="callout-100" class="callout-100-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Without loss of generality let <span class="math inline">\(i=n\)</span>. Let <span class="math inline">\(c_1,...,c_{n-1}\in\mathbb R\)</span>. Then observe that</p>
 <p><span class="math display">\[\begin{align}
@@ -2462,7 +2528,7 @@ Expanded Pythagorean Theorem
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-100-contents" aria-controls="callout-100" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-102-contents" aria-controls="callout-102" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2471,7 +2537,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-100" class="callout-100-contents callout-collapse collapse">
+<div id="callout-102" class="callout-102-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We will prove this by induction on <span class="math inline">\(n\)</span>, the number of vectors in the orthonormal set.</p>
 <p>In the base case with <span class="math inline">\(n=1\)</span>, observe that</p>
@@ -2510,7 +2576,7 @@ Theorem: Linear Independence and Orthonormality
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-102-contents" aria-controls="callout-102" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-104-contents" aria-controls="callout-104" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2519,7 +2585,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-102" class="callout-102-contents callout-collapse collapse">
+<div id="callout-104" class="callout-104-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(\{b_1,...,b_n\}\)</span> be an orthonormal set, and let <span class="math inline">\(c_1,...,c_n\in\mathbb R\)</span> such that <span class="math display">\[\sum\limits_{i=1}^{n}c_ib_i=\textbf{0}\]</span> Observe that</p>
 <p><span class="math display">\[\begin{align}
@@ -2537,8 +2603,9 @@ Proof
 </div>
 </section>
 </section>
-<section id="the-orthonormal-basis" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="the-orthonormal-basis"><span class="header-section-number">7.6</span> The Orthonormal Basis</h2>
+<section id="the-orthonormal-basis" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="the-orthonormal-basis"><span class="header-section-number">7.7</span> The Orthonormal Basis</h2>
+<p>Just like we can have a basis, an <em>orthonormal basis</em> is a basis that is also an orthonormal set.</p>
 </section>
 </section>
 

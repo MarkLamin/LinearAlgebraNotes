@@ -1482,6 +1482,59 @@ We start from the Cauchy-Schwartz Inequality and continue from there, noting tha
 \end{align}
 :::
 
+## Distance Between Vectors
+
+>Let $V$ be an inner product space and let $v,w\in V$. Then, the *distance* between $v$ and $w$ is notated and defined as $$\text{dist}(v, w) = \|v-w\|$$
+
+:::{.callout-note}
+## Theorem: Properties of a Metric
+Let $V$ be an inner product space and let $x,y,z\in V$. Then the following are true:
+
+(1) $\text{dist}(x,x)=0$
+
+(2) $x\neq y\implies\text{dist}(x,y)>0$
+
+(3) $\text{dist}(x,y)=\text{dist}(y,x)$
+
+(4) $\text{dist}(x,z) \leq\text{dist}(x,y) + \text{dist}(y,z)$
+:::
+
+:::{.callout-note collapse=true}
+## Proof
+
+Proof of (1): Observe that
+
+\begin{align*}
+\text{dist}(x,x) &= \|x-x\|\\
+                 &= \|\textbf{0}\|\\
+                 &= 0
+\end{align*}
+
+Proof of (2): Let $x\neq y$ be vectors in $V$. Then, $x-y\neq0$, so $\|x-y\|>0$.
+
+Proof of (3): Observe that
+
+\begin{align*}
+\text{dist}(x,y) &= \|x-y\|\\
+                 &= \|-1*(y-x)\|\\
+                 &= |-1|\|y-x\|\\
+                 &= 1*\|y-x\|\\
+                 &= \|y-x\|\\
+                 &= \text{dist}(y,x)
+\end{align*}
+
+Proof of (4): Observe that
+
+$$
+\begin{align*}
+\text{dist}(x,z) &= \|x-z\|\\
+                 &= \|(x - y) + (y - z)\|\\
+                 &\leq \|x-y\| + \|y-z\|\\
+                 &= \text{dist}(x,y) + \text{dist}(y,z)
+\end{align*}
+$$
+:::
+
 ## Orthogonal Sets
 
 > Let $V$ be an inner product space. Then a set, $\{v_1,...,v_n\}\subseteq V$ is called an *orthogonal set* if each vector is pairwise orthogonal. That is, $\langle v_i,v_j\rangle=0$ when $i\neq j$
@@ -1573,3 +1626,5 @@ Thus, the orthonormal set is linearly independent, which is what we wanted to sh
 :::
 
 ## The Orthonormal Basis
+
+Just like we can have a basis, an *orthonormal basis* is a basis that is also an orthonormal set.
