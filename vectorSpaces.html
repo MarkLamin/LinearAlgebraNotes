@@ -2605,7 +2605,116 @@ Proof
 </section>
 <section id="the-orthonormal-basis" class="level2" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="the-orthonormal-basis"><span class="header-section-number">7.7</span> The Orthonormal Basis</h2>
-<p>Just like we can have a basis, an <em>orthonormal basis</em> is a basis that is also an orthonormal set.</p>
+<blockquote class="blockquote">
+<p>An <em>orthogonal basis</em> is a basis that is also an orthogonal set. An <em>orthonormal basis</em> is a basis that is also an orthonormal set.</p>
+</blockquote>
+<p>To see why an orthonormal basis is useful, let <span class="math inline">\(V\)</span> be an inner product space and let <span class="math inline">\(\{u_1,...,u_n\}\)</span> be an orthonormal basis of <span class="math inline">\(V\)</span>.</p>
+<p>Then, if <span class="math inline">\(v\in V\)</span>, then there exist unique <span class="math inline">\(c_1,...,c_n\)</span> such that <span class="math display">\[v=\sum\limits_{i=1}^n c_iu_i\]</span> Observe that</p>
+<p><span class="math display">\[\begin{align*}
+\|v\| &amp;= \left\|\sum\limits_{i=1}^n c_iu_i\right\|\\
+      &amp;= \sum\limits_{i=1}^n\|c_iu_i\| \text{ (by the extended pythagorean theorem)}\\
+      &amp;= \sum\limits_{i=1}^n|c_i|\|u_i\|\\
+      &amp;= \sum\limits_{i=1}^n|c_i|*1\\
+      &amp;= \sum\limits_{i=1}^n|c_i|
+\end{align*}\]</span></p>
+<p>Thus, if we know a vector space has an orthonormal basis, the norm of every vector is easy to calculate if we know its coordinates. Fortunately, that is easy to calculate too.</p>
+<p><span class="math display">\[\begin{align*}
+v = \sum\limits_{i=1}^n c_iu_i &amp;\implies \langle u_j,v\rangle = \left\langle u_j,\sum\limits_{i=1}^n c_iu_i\right\rangle\\
+&amp;\implies \langle u_j,v\rangle = \sum\limits_{i=1}^n\langle u_j, c_iu_i\rangle\\
+&amp;\implies \langle u_j,v\rangle = \sum\limits_{i=1}^nc_i\langle u_j, u_i\rangle\\
+&amp;\implies \langle u_j,v\rangle = \sum\limits_{i=j}^nc_i\langle u_j, u_i\rangle + \sum\limits_{i\neq j}^nc_i\langle u_j, u_i\rangle\\
+&amp;\implies \langle u_j,v\rangle = c_j\langle u_j,u_j\rangle + \sum\limits_{i\neq j}^nc_i*0\\
+&amp;\implies \langle u_j,v\rangle = c_j\|u_j\|^2 + \sum\limits_{i\neq j}^n0\\
+&amp;\implies \langle u_j,v\rangle = c_j*1^2 + (n-1)*0\\
+&amp;\implies \langle u_j,v\rangle = c_j
+\end{align*}\]</span></p>
+<p>Thus, <span class="math inline">\(v=\sum\limits_{i=1}^n\langle u_i,v\rangle u_i\)</span> and <span class="math inline">\(\|v\|=\sum\limits_{i=1}^n|\langle u_i,v\rangle|\)</span>.</p>
+<p>Given the usefulness of an orthonormal basis, it is helpful to know how to convert a basis into an orthonormal basis.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem: The Grahm-Schmidt Process
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(V\)</span> be an inner product space and let <span class="math inline">\(\{v_1,...,v_n\}\)</span> be a basis of <span class="math inline">\(V\)</span>. Define the set of vectors, <span class="math inline">\(\{f_1,...,f_n\}\)</span> such that <span class="math inline">\(f_1=v_1\)</span> and <span class="math display">\[f_k=v_k-\sum\limits_{i=1}^{k-1}\frac{\langle v_k, f_i\rangle}{\|f_i\|^2}f_i\]</span> for <span class="math inline">\(k=2,...,n\)</span>. Then, define the set of vectors <span class="math inline">\(\{e_1,...,e_n\}\)</span> such that <span class="math inline">\(e_i=\frac{f_i}{\|f_i\|}\)</span>. Then <span class="math inline">\(\{e_1,...,e_n\}\)</span> is an orthonormal basis of <span class="math inline">\(V\)</span> and for all <span class="math inline">\(k=1,...,n\)</span>, <span class="math display">\[\text{span}(v_1,...,v_k)=\text{span}(e_1,...,e_k)\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-106-contents" aria-controls="callout-106" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof<a href="#fn29" class="footnote-ref" id="fnref29" role="doc-noteref"><sup>29</sup></a>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-106" class="callout-106-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When <span class="math inline">\(k=1\)</span>, <span class="math inline">\(e_k=\frac{v_k}{\|v_k\|}\implies\|v_k\|e_k=v_k\)</span>, so <span class="math inline">\(e_k\)</span> and <span class="math inline">\(v_k\)</span> are in the span of the other since they are each scalar multiples of each other. Observe that</p>
+<p><span class="math display">\[\begin{align*}
+\|e_k\| &amp;= \left\|\frac{v_k}{\|v_k\|}\right\|\\
+        &amp;= \frac{1}{|\|v_k\||}\|v_k\|\\
+        &amp;= \frac{\|v_k\|}{\|v_k\|}\\
+        &amp;= 1
+\end{align*}\]</span></p>
+<p>Where we know that none of the <span class="math inline">\(v_k\)</span> are the zero vector since they are elements of a basis. Hence, <span class="math inline">\(\{e_1\}\)</span> is an orthonormal set.</p>
+<p>Now, suppose for some <span class="math inline">\(k&lt;n\)</span> that <span class="math inline">\(\{e_1,...,e_k\}\)</span> is an orthonormal set and that <span class="math inline">\(\text{span}(e_1,...,e_k)=\text{span}(v_1,...,v_k)\)</span>. Since <span class="math inline">\(v_{k+1}\notin\text{span}(v_1,...,v_k)=\text{span}(f_1,...,f_k)\)</span>, then <span class="math inline">\(f_{k+1}\)</span> cannot be zero (since otherwise <span class="math inline">\(f_{k+1}\)</span> is defined by the coordinates of a vector as if <span class="math inline">\(\{v_1,...,v_k\}\)</span> is a basis of <span class="math inline">\(f\)</span>, see more on this idea in the next section). Observe that</p>
+<p><span class="math display">\[\begin{align*}
+\|e_k\| &amp;= \left\|\frac{f_{k+1}}{\|f_{k+1}\|}\right\|\\
+        &amp;= \frac{1}{|\|f_{k+1}\||}\|f_{k+1}\|\\
+        &amp;= \frac{\|f_{k+1}\|}{\|f_{k+1}\|}\\
+        &amp;= 1
+\end{align*}\]</span></p>
+<p>and that for <span class="math inline">\(j\neq k+1\)</span>, that</p>
+<p><span class="math display">\[\begin{align*}
+\langle e_j, e_{k+1}\rangle &amp;= \left\langle e_j,\frac{f_{k+1}}{\|f_{k+1}\|}\right\rangle\\
+&amp;=\frac{1}{\|f_{k+1}\|}\langle e_j, f_{k+1}\rangle\\
+&amp;=\frac{1}{\|f_{k+1}\|}\left\langle e_j, v_{k+1}-\sum\limits_{i=1}^{k}\frac{\langle v_{k+1}, f_i\rangle}{\|f_i\|^2}f_i\right\rangle\\
+&amp;=\frac{1}{\|f_{k+1}\|}\left\langle e_j, v_{k+1}-\sum\limits_{i=1}^{k}\frac{\langle v_{k+1}, \|f_i\|e_i\rangle}{\|f_i\|^2}f_i\right\rangle\\
+&amp;=\frac{1}{\|f_{k+1}\|}\left\langle e_j, v_{k+1}-\sum\limits_{i=1}^{k}\frac{\|f_i\|\langle v_{k+1}, e_i\rangle}{\|f_i\|^2}f_i\right\rangle\\
+&amp;=\frac{1}{\|f_{k+1}\|}\left\langle e_j, v_{k+1}-\sum\limits_{i=1}^{k}\frac{\langle v_{k+1}, e_i\rangle}{\|f_i\|}f_i\right\rangle\\
+&amp;=\frac{1}{\|f_{k+1}\|}\left(\langle e_j, v_{k+1}\rangle - \left\langle e_j,\sum\limits_{i=1}^{k}\frac{\langle v_{k+1}, e_i\rangle}{\|f_i\|}\|f_i\|e_i\right\rangle\right)\\
+&amp;=\frac{1}{\|f_{k+1}\|}\left(\langle e_j, v_{k+1}\rangle - \left\langle e_j,\sum\limits_{i=1}^{k}\langle v_{k+1}, e_i\rangle e_i\right\rangle\right)\\
+&amp;=\frac{1}{\|f_{k+1}\|}\left(\langle e_j, v_{k+1}\rangle - \sum\limits_{i=1}^{k}\left\langle e_j,\langle v_{k+1}, e_i\rangle e_i\right\rangle\right)\\
+&amp;= \frac{1}{\|f_{k+1}\|}\left(\langle e_j, v_{k+1}\rangle - \sum\limits_{i=1}^{k}\langle v_{k+1}, e_i\rangle\left\langle e_j, e_i\right\rangle\right)\\
+&amp;= \frac{1}{\|f_{k+1}\|}\left(\langle e_j, v_{k+1}\rangle - \sum\limits_{i=j}^{k}\langle v_{k+1}, e_i\rangle\left\langle e_j, e_i\right\rangle- \sum\limits_{i\neq j}^{k}\langle v_{k+1}, e_i\rangle\left\langle e_j, e_i\right\rangle\right)\\
+&amp;= \frac{1}{\|f_{k+1}\|}\left(\langle e_j, v_{k+1}\rangle - \langle v_{k+1}, e_j\rangle\left\langle e_j, e_j\right\rangle- \sum\limits_{i\neq j}^{k}\langle v_{k+1}, e_i\rangle*0\right)\\
+&amp;= \frac{1}{\|f_{k+1}\|}\left(\langle e_j, v_{k+1}\rangle - \langle e_j,v_{k+1}\rangle\|e_j\|^2- \sum\limits_{i\neq j}^{k}0\right)\\
+&amp;= \frac{1}{\|f_{k+1}\|}\left(\langle e_j, v_{k+1}\rangle - \langle e_j,v_{k+1}\rangle* 1^2- (k-1)*0\right)\\
+&amp;= \frac{1}{\|f_{k+1}\|}\left(\langle e_j, v_{k+1}\rangle - \langle e_j,v_{k+1}\rangle* 1- 0\right)\\
+&amp;=\frac{1}{\|f_{k+1}\|}\left(\langle e_j, v_{k+1}\rangle - \langle e_j,v_{k+1}\rangle\right)\\
+&amp;=\frac{1}{\|f_{k+1}\|}*0\\
+&amp;=0
+\end{align*}\]</span></p>
+<p>Thus, <span class="math inline">\(\{e_1,...,e_{k+1}\}\)</span> is an orthonormal set. It remains to be shown that <span class="math display">\[\text{span}(e_1,...,e_{k+1})=\text{span}(v_1,...,v_{k+1})\]</span></p>
+<p>Suppose <span class="math inline">\(b\in \text{span}(e_1,...,e_{k+1})\)</span>. Then <span class="math display">\[b=\sum\limits_{i=1}^{k+1}\langle b, e_i\rangle e_i = \langle b, e_{k+1}\rangle e_{k+1} + \sum\limits_{i=1}^{k}\langle b, e_i\rangle e_i\]</span> Then define <span class="math display">\[a = \sum\limits_{i=1}^{k}\langle b, e_i\rangle e_i\in\text{span}(e_1,...,e_k)=\text{span}(v_1,...,v_k)\subset\{v_1,...,v_{k+1}\}\]</span> So <span class="math inline">\(b=a + \langle b, e_{k+1}\rangle e_{k+1}\)</span> Then, observe that</p>
+<p><span class="math display">\[
+\begin{align*}
+\langle b, e_{k+1}\rangle e_{k+1} &amp;= \langle b, e_{k+1}\rangle \frac{1}{\|f_{k+1}\|}f_{k+1}\\
+&amp;= \frac{\langle b, e_{k+1}\rangle}{\|f_{k+1}\|}\left(v_{k+1}-\sum\limits_{i=1}^{k}\frac{\langle v_{k+1}, f_i\rangle}{\|f_i\|^2}f_i\right)\\
+&amp;= \frac{\langle b, e_{k+1}\rangle}{\|f_{k+1}\|}\left(v_{k+1}-\sum\limits_{i=1}^{k}\frac{\langle v_{k+1}, f_i\rangle}{\|f_i\|^2}\|f_i\|e_i\right)\\
+&amp;= \frac{\langle b, e_{k+1}\rangle}{\|f_{k+1}\|}\left(v_{k+1}-\sum\limits_{i=1}^{k}\frac{\langle v_{k+1}, f_i\rangle}{\|f_i\|}e_i\right)
+\end{align*}
+\]</span></p>
+<p>Let <span class="math inline">\(c=\frac{\langle b, e_{k+1}\rangle}{\|f_{k+1}\|}\in\mathbb R\)</span> and <span class="math inline">\(\alpha=\sum\limits_{i=1}^{k}\frac{\langle v_{k+1}, f_i\rangle}{\|f_i\|}e_i\in\text{span}(e_1,...,e_k)=\text{span}(v_1,...,v_k)\subset\text{span}(v_1,...,v_{k+1})\)</span>, so <span class="math inline">\(\langle b, e_{k+1}\rangle e_{k+1} = c(v_{k-1}-\alpha)\)</span> which is in <span class="math inline">\(\text{span}(v_1,...,v_{k+1})\)</span> since it is a linear combination of elements in the span of those vectors, so <span class="math inline">\(b = a + c(v_{k-1}-\alpha)\in\text{span}(v_1,...,v_{k+1})\)</span>, meaning that <span class="math inline">\(\text{span}(e_1,...,e_{k+1})\subseteq\text{span}(v_1,...,v_{k+1})\)</span>.</p>
+<p>Now, suppose <span class="math inline">\(b\in\text{span}(v_1,...,v_{k+1})\)</span>. Then, there exist scalars <span class="math inline">\(c_1,...,c_{k+1}\)</span> such that <span class="math display">\[b=\sum\limits_{i=1}^{k+1}c_iv_i = c_{k+1}v_{k+1} + \sum\limits_{i=1}^{k}c_iv_i\]</span> Let <span class="math inline">\(a = \sum\limits_{i=1}^{k}c_iv_i\in\text{span}(v_1,...,v_k)=\text{span}(e_1,...,e_k)\subset\text{span}(e_1,...,e_{k+1})\)</span> so <span class="math inline">\(b= a + c_{k+1}v_{k+1}\)</span>. Observe that</p>
+<p><span class="math display">\[
+\begin{align*}
+b&amp;=a + c_{k+1}\left(f_{k+1} + \sum\limits_{i=1}^{k}\frac{\langle v_{k+1}, f_i\rangle}{\|f_i\|^2}f_i\right)\\
+&amp;= a+ c_{k+1}\left(\|f_{k+1}\|e_{k+1} +\sum\limits_{i=1}^{k}\frac{\langle v_{k+1}, f_i\rangle}{\|f_i\|^2}\|f_i\|e_i \right)\\
+&amp;= a+ c_{k+1}\left(\|f_{k+1}\|e_{k+1} +\sum\limits_{i=1}^{k}\langle v_{k+1}, e_i\rangle e_i \right)
+\end{align*}
+\]</span></p>
+<p>Thus, <span class="math inline">\(b\in\text{span}(e_1,...,e_{k+1})\)</span>, so <span class="math inline">\(\text{span}(e_1,...,e_k)=\text{span}(v_1,...,v_k)\)</span>.</p>
+<p>Since <span class="math inline">\(\{e_1,...,e_n\}\)</span> is an orthonormal set, it is therefore a linearly independent set and thus a basis of the span of its vectors which is equal to the span of the <span class="math inline">\(v_i\)</span>’s, which is equal to <span class="math inline">\(V\)</span>. Thus, <span class="math inline">\(\{e_1,...,e_n\}\)</span> is an orthonormal basis of <span class="math inline">\(V\)</span>, which is what we wanted to show. <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -2641,6 +2750,7 @@ Proof
 <li id="fn26"><p>symmetry of inner products<a href="#fnref26" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn27"><p>d and e represent the linearity of inner products<a href="#fnref27" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn28"><p>In some texts, the term here is the <em>induced norm</em> by the inner product, and the notion of a norm is generalized to be a function that has a particular set of properties, including those proved in the following theorem.<a href="#fnref28" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn29"><p>See Theorem 6.32 of Linear Algebra Done Right for more details<a href="#fnref29" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->
